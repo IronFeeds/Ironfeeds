@@ -21,23 +21,11 @@ const articleSchema = new Schema({
   },
   image: {
     type: String,
-    required: true,
   },
-  category: {
-    type: String,
-    required: true,
-    enum: [
-      "general",
-      "business",
-      "entertainment",
-      "health",
-      "science",
-      "sports",
-    ],
-  },
+  category: 
+    { type: Schema.Types.ObjectId, ref: "Category"},
   language: {
     type: String,
-    required: true,
     enum: [
       "ar",
       "de",
@@ -116,6 +104,9 @@ const articleSchema = new Schema({
       required: true,
       default: Date.now,
     },
+    owner:{
+      type: Schema.Types.ObjectId, ref: "Articles"
+    }
   },
 });
 

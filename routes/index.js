@@ -1,16 +1,12 @@
-const axios = require('axios')
+
 
 const router = require('express').Router();
 const API = "http://api.mediastack.com/v1/news?access_key=" + process.env.API_KEY
+const Article = require("../models/Article.model")
 
 router.get("/", (req, res)=>
-
-{   
-    axios.get(API)
-      .then(response => {
-          console.log("API data", Object.values(response.data.data))
-          res.render("index", {name:response.data.data})})
-        
-}
+Article.find().populate("category")
+.then((articles)=>res.render("index", {name:articles}))
+          
 )
 module.exports = router;

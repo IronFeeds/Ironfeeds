@@ -1,8 +1,8 @@
 <form action="/" method="post">
-//filtering
+{{!-- filtering --}}
 </form>
 
-//dynamic navbar
+{{!-- dynamic navbar --}}
 <div>
     <img src="{{user.image}}" alt="">
     <h2>{{user.name}}</h2>
@@ -10,7 +10,8 @@
     <a href="/categories">Edit Categories</a>
     <a href="/logout">Logout</a>
 </div>
-//newsfeed
+
+{{!-- newsfeed --}}
 {{#each name}}
 <div>
     {{#if this.image}}
@@ -19,7 +20,7 @@
     <h2>{{this.title}}</h2>
     <p>{{this.published_at}}</p>
     <p>{{this.description}}</p>
-    <p><span>Source:{{this.source}}</span> <span>Category:{{this.category}}</span> <span>Country:{{this.country}}</span></p>
+    <p><span>Source:{{this.source}}</span> <span>Category:{{this.category.name}}</span> <span>Country:{{this.country}}</span></p>
     <a href="{{this.url}}">Read the article</a>
 </div>
 {{/each}}
