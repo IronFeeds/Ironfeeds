@@ -1,0 +1,44 @@
+<div id="form">
+  <h2>Edit Form</h2>
+  <form action="/profile/:articleId/edit" method="POST" enctype="multipart/form-data">
+
+    <label>
+      Title
+      <input type="text" name="title" placeholder="title"/>
+    </label>
+
+    <label>
+      URL
+      <input type="url" name="url" placeholder="url"/>
+    </label>
+
+    <label>
+      Description
+      <input type="text" name="description" placeholder="description"/>
+    </label>
+
+    <label>Image:</label>
+        <input type="file" name="imageUrl"/>
+    </label>
+
+
+    <label for="categories">Choose a News Category</label>
+      <select name="categories">
+  
+        <option value="general">General</option>
+        <option value="business">Business</option>
+        <option value="entertainment">Entertainment</option>
+        <option value="health">Health</option>
+        <option value="science">Science</option>
+        <option value="sports">Sports</option>
+      </select>
+      </label>
+   
+    <button type="submit">Edit</button>
+
+  </form>
+
+  {{#if errorMessage}}
+    <p>There was a problem: {{errorMessage}}</p>
+  {{/if}}
+</div>
