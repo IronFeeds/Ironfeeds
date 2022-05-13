@@ -29,13 +29,20 @@ app.locals.title = `${capitalized(projectName)} created with Ironlauncher`;
 const isLoggedIn = require('./middleware/isLoggedIn');
 
 const authRoutes = require('./routes/auth-routes');
-app.use('/auth', authRoutes);
+app.use('/', authRoutes);
+
+const categories = require('./routes/categories');
+app.use('/', categories);
+
+const profile = require('./routes/profile');
+app.use('/', profile);
 
 const privateRoutes = require('./routes/private-routes');
 app.use('/private', isLoggedIn, privateRoutes);
 
 const index = require('./routes/index');
 app.use('/', index);
+
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
