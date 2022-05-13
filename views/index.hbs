@@ -1,13 +1,25 @@
 <form action="/" method="post">
-
+//filtering
 </form>
+
+//dynamic navbar
+<div>
+    <img src="{{user.image}}" alt="">
+    <h2>{{user.name}}</h2>
+    <a href="/profile">Profile</a>
+    <a href="/categories">Edit Categories</a>
+    <a href="/logout">Logout</a>
+</div>
+//newsfeed
 {{#each name}}
-{{#if this.image}}
-<img src="{{this.image}}" alt="{{this.title}}">
-{{/if}}
-<h2>{{this.title}}</h2>
-<p>{{this.published_at}}</p>
-<p>{{this.description}}</p>
-<p><span>Source:{{this.source}}</span> <span>Category:{{this.category}}</span> <span>Country:{{this.country}}</span></p>
-<a href="{{this.url}}">Read the article</a>
+<div>
+    {{#if this.image}}
+       <img src="{{this.image}}" alt="{{this.title}}">
+    {{/if}}
+    <h2>{{this.title}}</h2>
+    <p>{{this.published_at}}</p>
+    <p>{{this.description}}</p>
+    <p><span>Source:{{this.source}}</span> <span>Category:{{this.category}}</span> <span>Country:{{this.country}}</span></p>
+    <a href="{{this.url}}">Read the article</a>
+</div>
 {{/each}}
