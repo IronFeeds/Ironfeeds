@@ -120,6 +120,6 @@ const articleSchema = new Schema({
   articles: [{ type: Schema.Types.ObjectId, ref: "Articles", default: [] }],
 });
 
-const Article = model("Article", userSchema);
+const Article = model("Article", articleSchema);
 
-module.exports = User;
+module.exports = Article;
