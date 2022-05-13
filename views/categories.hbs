@@ -1,4 +1,18 @@
-<div id="form">
+<h1>Categories</h1>
+
+<form action="/categories" method="POST">
+
+  {{#each categories}}
+    <input type="checkbox" value="{{_id}}" name="{{name}}" id="{{name}}" />
+    <label for="{{name}}">{{name}}</label>
+  {{/each}}
+
+    <button type="submit">Save</button>
+  </form>
+
+
+
+{{! <div id="form">
 
   <h1>Categories</h1>
   <form action="/categories" method="POST">
@@ -30,4 +44,4 @@
      <button type="submit">Save</button>
   </form>
 
-</div>
+</div> }}
