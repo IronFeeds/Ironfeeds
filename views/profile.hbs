@@ -4,7 +4,7 @@
     <h2>My Article</h2>
 </nav>
 <div class>
-    {{#each name}}
+    {{#each savedArticles}}
     <div>
         {{#if this.image}}
            <img src="{{this.image}}" alt="{{this.title}}">
@@ -12,7 +12,7 @@
         <h2>{{this.title}}</h2>
         <p>{{this.published_at}}</p>
         <p>{{this.description}}</p>
-        <p><span>Source:{{this.source}}</span> <span>Category:{{this.category}}</span> <span>Country:{{this.country}}</span></p>
+        <p><span>Source:{{this.source}}</span> <span>Category:{{this.category.name}}</span> <span>Country:{{this.country}}</span></p>
         <a href="{{this.url}}">Read the article</a>
         <a href="/profile/{{name._id}}/delete"><img src="images/bookmark.png" alt="save"></a>
     </div>
@@ -22,7 +22,7 @@
 <div class="hidden">
     <a href="/profile/add">Add Article</a>
 
-    {{#each name}}
+    {{#each userArticles}}
     <div>
         {{#if this.image}}
            <img src="{{this.image}}" alt="{{this.title}}">
@@ -30,7 +30,7 @@
         <h2>{{this.title}}</h2>
         <p>{{this.published_at}}</p>
         <p>{{this.description}}</p>
-        <p><span>Source:{{this.source}}</span> <span>Category:{{this.category}}</span> <span>Country:{{this.country}}</span></p>
+        <p><span>Source:{{this.source}}</span> <span>Category:{{this.category.name}}</span> <span>Country:{{this.country}}</span></p>
         <a href="{{this.url}}">Read the article</a>
         <a href="/profile/{{name._id}}/edit">Edit</a>
         <a href="/profile/{{name._id}}/delete">Delete</a>

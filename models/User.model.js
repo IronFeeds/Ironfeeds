@@ -23,18 +23,8 @@ const userSchema = new Schema({
     unique: true,
   },
   
-  category: {
-    type: String,
-    required: true,
-    enum: [
-      "general",
-      "business",
-      "entertainment",
-      "health",
-      "science",
-      "sports",
-    ],
-  },
+  category: 
+    [{ type: Schema.Types.ObjectId, ref: "Category", default: [] }],
   articles: [{ type: Schema.Types.ObjectId, ref: "Articles", default: [] }],
 });
 
