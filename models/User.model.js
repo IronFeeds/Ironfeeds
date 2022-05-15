@@ -25,7 +25,8 @@ const userSchema = new Schema({
   
   category: 
     [{ type: Schema.Types.ObjectId, ref: "Category", default: [] }],
-  articles: [{ type: Schema.Types.ObjectId, ref: "Article", default: [] }],
+  savedArticles: [{ type: Schema.Types.ObjectId, ref: "Article", default: [] }],
+  createdArticles: [{ type: Schema.Types.ObjectId, ref: "Article", default: [] }]
 });
 
 const User = model("User", userSchema);

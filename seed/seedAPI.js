@@ -6,7 +6,7 @@ const Category = require("../models/Category.model")
 
 const Article = require("../models/Article.model")
 
-const API = "http://api.mediastack.com/v1/news?access_key=" + process.env.API_KEY
+const API = "http://api.mediastack.com/v1/news?access_key=" + process.env.API_KEY +"&sources=en"
 
 axios.get(API)
 
@@ -26,7 +26,7 @@ axios.get(API)
                 language:el.language,
                 country: el.country,
                 published_at: el.published_at,
-                owner:null
+            
             })}
             )
         
@@ -35,7 +35,7 @@ axios.get(API)
 
 .then(()=>{
     console.log(`${Article.length} articles successfully created`)
-//   mongoose.connection.close()
+    mongoose.connection.close()
 })
   .catch(()=>console.log("couldn't add the drones"))
 

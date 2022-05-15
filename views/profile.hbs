@@ -14,7 +14,7 @@
         <p>{{this.description}}</p>
         <p><span>Source:{{this.source}}</span> <span>Category:{{this.category.name}}</span> <span>Country:{{this.country}}</span></p>
         <a href="{{this.url}}">Read the article</a>
-        <a href="/profile/{{name._id}}/delete"><img src="images/bookmark.png" alt="save"></a>
+        <a href="/profile/{{this._id}}/delete"><img src="images/bookmark.png" alt="save"></a>
     </div>
     {{/each}}
 </div>
@@ -33,7 +33,9 @@
         <p><span>Source:{{this.source}}</span> <span>Category:{{this.category.name}}</span> <span>Country:{{this.country}}</span></p>
         <a href="{{this.url}}">Read the article</a>
         <a href="/profile/{{this._id}}/edit">Edit</a>
-        <a href="/profile/{{this._id}}/delete">Delete</a>
+        <form action="/profile/{{this._id}}/delete" method="post">
+        <button type="submit">Delete</button>
+        </form>
     </div>
     {{/each}}
 </div>
