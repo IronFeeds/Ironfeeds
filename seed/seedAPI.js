@@ -9,6 +9,7 @@ const Article = require("../models/Article.model")
 const API = "http://api.mediastack.com/v1/news?access_key=" + process.env.API_KEY
 
 axios.get(API)
+
 .then(response => {
     response.data.data.forEach((el)=>
    
@@ -24,7 +25,8 @@ axios.get(API)
                 source: el.source,
                 language:el.language,
                 country: el.country,
-                published_at: el.published_at
+                published_at: el.published_at,
+                owner:null
             })}
             )
         
