@@ -44,7 +44,6 @@ const articleSchema = new Schema({
   },
   country: {
     type: String,
-    required: true,
     // enum: [
     //   "Argentina",
     //   "Australia",
@@ -103,9 +102,6 @@ const articleSchema = new Schema({
       type: Date,
       required: true,
       default: Date.now,
-    },
-    owner:{
-      type: Schema.Types.ObjectId, ref: "User", required: true, default:null
     }
   },
 });

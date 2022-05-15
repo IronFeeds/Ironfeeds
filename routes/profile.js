@@ -2,63 +2,38 @@ const express = require('express');
 const router = express.Router();
 
 const User = require("../models/User.model")
-const Article = require("../models/Article.model")
+const Article = require("../models/Article.model");
+const Category = require('../models/Category.model');
+const fileUploader = require('./../config/cloudinary')
 
-//Go to profile
-// router.route("/profile")
-// .get((req, res)=> {
-//     const user =req.session.currentUser
-//     User.find(user).populate("articles")
-//     .then((user)=>{
-//         console.log(user)
-//         const userArticles=[]
-        
-//         if(user.articles.owner === user._id)userArticles.push
-//         res.render("profile", 
-//         {user: user,
-//         userArticles: userArticles,
-//         savedArticles: users.articles})})
-       
-    
-    
-// })
+const Handlebars = require("handlebars")
 
-//Create a new article
-router.route("/profile/add")
-.get((req, res)=> {
-    res.render("addArticle")
+
+
+
+//delete article
+router.post("/profile/:articleId/delete", (req, res)=>{
+    const {articleId} = req.params;
+    Article.findByIdAndDelete(articleId)
+    .then(()=>res.redirect("/profile"))
+    .catch((err)=>console.log(err))
 })
-.post((req, res)=>
-{
-    const userId = req.session.currentUser._id;
-    const { title, url, description, categories } = req.body;
-    const imageUrl = req.file.path
-    Category.findOne({name: categories})
-    .then((category)=>
-    Article.create({
-        title,
-        url,
-        description,
-        category:category._id,
-        image: imageUrl
-    })
-    .then((createdArticle)=> 
-          User.findById(userId)
-          .then((user)=>user.articles.push(createdArticle._id))))
-          .catch(err=>console.log(err))
-    res.redirect("/profile")
-}
-)
 
 
+//Edit article
 router.route("/profile/:articleId/edit")
 .get((req, res)=> {
     const {articleId} = req.params
-    Article.findById(articleId).populate(category)
-    .then((article)=>
-    res.render("editArticle", {name:article}))
-})
-.post((req, res)=> {
+    Article.findById(articleId).populate("category")
+    .then((article)=>Category.find()
+    .then((categories)=> {
+    res.render("editArticle", {name:article, categories}),
+    
+    Handlebars.registerHelper("chosenCat", function(){
+    return categories._id === article.category})}
+   ))
+} )
+.post(fileUploader.single('imageUrl'),(req, res)=> {
     const {articleId} = req.params
     const { title, url, description, categories } = req.body;
     const imageUrl = req.file.path
@@ -76,12 +51,59 @@ router.route("/profile/:articleId/edit")
 })
 
 
-router.post("/profile/:articleId/delete", (req, res)=>{
-    const {articleId} = req.params;
-    Article.findByIdAndDelete(articleId)
-    res.redirect("/profile")
-})
 
+
+//Create a new article
+router.route("/profile/add")
+.get((req, res)=> {
+    Category.find()
+    .then((cat)=> res.render("addArticles", {cat}))
+    
+})
+.post(fileUploader.single('imageUrl') ,(req, res)=>
+{
+    const user = req.session.currentUser;
+    const { title, url, description, categories } = req.body;
+    const imageUrl = req.file.path
+    Category.findById(categories)
+    .then((category)=>{
+    const categoryId = category._id
+    Article.create({
+        title,
+        url,
+        description: description,
+        category:categoryId,
+        image: imageUrl
+    })
+    .then((createdArticle)=> 
+          {
+          const articleId = createdArticle._id 
+          User.findById(user._id)
+          .then((user)=>{
+              
+              user.createdArticles.push(articleId)
+            })
+        })
+          
+        })
+        .then(()=>res.redirect("/profile"))
+        .catch(err=>console.log(err))          
+     })
+          
+//Go to profile
+router.route("/profile")
+.get((req, res)=> {
+    const user = req.session.currentUser._id
+    User.findById(user).populate("createdArticles savedArticles")
+    .then((user)=>{
+        console.log(user)
+        res.render("profile", {user,
+       
+        userArticles: user.createdArticles,
+        savedArticles: user.savedArticles
+    }
+    )})
+})
 
 
 module.exports = router;
