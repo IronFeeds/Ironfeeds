@@ -18,19 +18,23 @@ router
     const userId = req.session.currentUser._id;
     const bodyObject = req.body
         Object.values(bodyObject).forEach((catId) => {
+          console.log(catId)
             User.find({ _id: userId, category: catId })
             .then((result)=>{
                 console.log(result)
-                if (result) {
-            User.findById(userId).category.splice(User.find({ _id: userId}).category.indexOf(catId), 1);
+                if (result.length>0) {
+            User.findById(userId)
+            .then((user)=>user.category.splice(user.category.indexOf(catId), 1));
           } else {
-            User.findById(userId).category.push(catId);
+            User.findById(userId)
+            .then((user)=>user.category.push(catId));
           }
             })
+            .then(() => res.redirect("/"))
+            .catch((err) => console.log(err))
           
         })
-        .then(() => res.redirect("/"))
-      .catch((err) => console.log(err));
+        
       })
 
       
