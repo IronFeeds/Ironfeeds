@@ -24,15 +24,15 @@ router
    
     const { name, email, password } = req.body;
 
-    // if (!username || !email || !password){
-    //   res.render("login", {errorMessage: "All fields required"})
-    //   return
-    // }
+    if (!username || !email || !password){
+      res.render("login", {errorMessage: "All fields required"})
+      return
+    }
     
-    // const regex = / (?=.*\d) (?=.*[a-z]) (?=.*[A-Z]).{6,} /
-    // if(regex.test(password)){
-    //   res.render("login", {errorMessage: "Password must follow guidelines"})
-    // }
+    const regex = / (?=.*\d) (?=.*[a-z]) (?=.*[A-Z]).{6,} /
+    if(regex.test(password)){
+      res.render("login", {errorMessage: "Password must follow guidelines"})
+    }
 
     bcrypt
       .genSalt(saltRounds)
@@ -60,13 +60,6 @@ router
 
 
 
-
-
-router.route("/login")
-.get((req, res)=> {
-    res.render("login")
-})
-
 router
   .route("/login")
   .get((req, res) => res.render("login"))
@@ -91,6 +84,15 @@ router
       .catch((err) => console.log(err));
   });
 
+  router.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+      if (err) {
+        res.render('error', { message: 'Something went wrong! Yikes!' });
+      } else {
+        res.redirect('/login');
+      }
+    });
+  });
 
 
 module.exports = router;
