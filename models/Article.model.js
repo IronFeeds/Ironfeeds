@@ -9,7 +9,7 @@ const articleSchema = new Schema({
   },
   description: {
     type: String,
-    required: true,
+ 
   },
   url: {
     type: String,
@@ -105,7 +105,7 @@ const articleSchema = new Schema({
       default: Date.now,
     },
     owner:{
-      type: Schema.Types.ObjectId, ref: "Articles"
+      type: Schema.Types.ObjectId, ref: "User", required: true, default:null
     }
   },
 });

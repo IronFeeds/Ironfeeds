@@ -5,20 +5,23 @@ const User = require("../models/User.model")
 const Article = require("../models/Article.model")
 
 //Go to profile
-router.route("/profile")
-.get((req, res)=> {
-    Article.find({owner:req.session.currentUser}).populate("categories")
-    .then((userArticles)=>{
-        User.find().populate("articles")
-        .then((users)=> 
-        res.render("profile", 
-        {user: req.session.currentUser,
-        userArticles: userArticles,
-        savedArticles: users.articles}))
+// router.route("/profile")
+// .get((req, res)=> {
+//     const user =req.session.currentUser
+//     User.find(user).populate("articles")
+//     .then((user)=>{
+//         console.log(user)
+//         const userArticles=[]
+        
+//         if(user.articles.owner === user._id)userArticles.push
+//         res.render("profile", 
+//         {user: user,
+//         userArticles: userArticles,
+//         savedArticles: users.articles})})
        
-    })
     
-})
+    
+// })
 
 //Create a new article
 router.route("/profile/add")
