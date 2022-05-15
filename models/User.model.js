@@ -6,7 +6,8 @@ const userSchema = new Schema({
   image: {
     type: String,
     required: true,
-    default: "https://images.assetsdelivery.com/compings_v2/meysye/meysye1904/meysye190400002.jpg"
+    default:
+      "https://images.assetsdelivery.com/compings_v2/meysye/meysye1904/meysye190400002.jpg",
   },
   name: {
     type: String,
@@ -21,6 +22,9 @@ const userSchema = new Schema({
     required: true,
     unique: true,
   },
+  
+  category: 
+    [{ type: Schema.Types.ObjectId, ref: "Category", default: [] }],
   articles: [{ type: Schema.Types.ObjectId, ref: "Articles", default: [] }],
 });
 
