@@ -24,15 +24,15 @@ router
    
     const { name, email, password } = req.body;
 
-    if (!username || !email || !password){
-      res.render("login", {errorMessage: "All fields required"})
-      return
-    }
+    // if (!username || !email || !password){
+    //   res.render("login", {errorMessage: "All fields required"})
+    //   return
+    // }
     
-    const regex = / (?=.*\d) (?=.*[a-z]) (?=.*[A-Z]).{6,} /
-    if(regex.test(password)){
-      res.render("login", {errorMessage: "Password must follow guidelines"})
-    }
+    // const regex = / (?=.*\d) (?=.*[a-z]) (?=.*[A-Z]).{6,} /
+    // if(regex.test(password)){
+    //   res.render("login", {errorMessage: "Password must follow guidelines"})
+    // }
 
     bcrypt
       .genSalt(saltRounds)
