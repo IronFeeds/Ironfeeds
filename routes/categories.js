@@ -2,15 +2,30 @@ const express = require("express");
 const Category = require("../models/Category.model");
 const User = require("../models/User.model");
 
+const Handlebars = require ("handlebars")
 const router = express.Router();
 
 //choose a category
 router
   .route("/categories")
   .get((req, res) => {
-    Category.find().then((category) =>
-      res.render("categories", { categories: category })
-    );
+    /*     category = await Category.find();
+    res.render("categories", { categories: category });
+ */
+
+    async function catuser() {
+      const categories = await Category.find();
+      const user = await User.findOne({ _id: req.session.currentUser._id });
+      
+        for(const category of categories){
+        Handlebars.registerHelper("userCat", function () {
+        return user.find({ category: {$in: categories._id } });
+        })}
+      
+      console.log(userCat.category);
+      res.render("categories", { categories: categories});
+    }
+    catuser();
   })
 
   .post((req, res) => {

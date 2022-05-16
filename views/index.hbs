@@ -13,7 +13,7 @@
 
 {{!-- newsfeed --}}
 {{#each name}}
-<div>
+<div id="{{this._id}}">
     {{#if this.image}}
        <img src="{{this.image}}" alt="{{this.title}}">
     {{/if}}
@@ -23,8 +23,8 @@
     <p><span>Source:{{this.source}}</span> <span>Category:{{this.category.name}}</span> <span>Country:{{this.country}}</span></p>
     <a href="{{this.url}}">Read the article</a>
     
-    <form action="/" method="post">
-    <button type="submit">Save</button>
+    <form class="saveFav" action="/user/save/{{this._id}}" method="post">
+    <button  type="submit">Save</button>
     </form>
 </div>
 {{/each}}
