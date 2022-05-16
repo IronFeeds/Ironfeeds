@@ -2,7 +2,7 @@ const express = require("express");
 const Category = require("../models/Category.model");
 const User = require("../models/User.model");
 
-const Handlebars = require ("handlebars")
+const Handlebars = require("handlebars");
 const router = express.Router();
 
 //choose a category
@@ -16,14 +16,26 @@ router
     async function catuser() {
       const categories = await Category.find();
       const user = await User.findOne({ _id: req.session.currentUser._id });
-      
-        for(const category of categories){
+      const userCategories = user.category;
+      const categoriesWithChecked = categories.map((category) => {
+        const checked = userCategories.some((userCategory) => {
+          return userCategory.equals(category._id);
+        });
+        return {
+          _id: category._id,
+          name: category.name,
+          checked: checked,
+        };
+      });
+
+      /*   for (const category of categories) {
         Handlebars.registerHelper("userCat", function () {
-        return user.find({ category: {$in: categories._id } });
-        })}
-      
-      console.log(userCat.category);
-      res.render("categories", { categories: categories});
+          User.find({_id: req.session.currentUser._id, category: { $in: category._id } })
+          .then((result)=>{if(result){return true}}) 
+         
+        });
+      } */
+      res.render("categories", { categories: categoriesWithChecked });
     }
     catuser();
   })
