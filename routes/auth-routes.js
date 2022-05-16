@@ -8,7 +8,7 @@ const saltRounds = 5;
 const User = require("../models/User.model");
 const res = require("express/lib/response");
 
-// const isNotLoggedIn = require('./../middleware/isNotLoggedIn')
+const isNotLoggedIn = require('./../middleware/isNotLoggedIn')
 
 
         // router.route("/signup")
