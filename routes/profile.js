@@ -78,11 +78,9 @@ router.route("/profile/add")
     .then((createdArticle)=> 
           {
           const articleId = createdArticle._id 
-          User.findById(user._id)
-          .then((user)=>{
-              
-              user.createdArticles.push(articleId)
-            })
+          User.findByIdAndUpdate(user._id, {$push: { createdArticles : articleId }}, {new:true})
+          .then((user)=>console.log(user))
+         
         })
           
         })
