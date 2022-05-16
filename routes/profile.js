@@ -36,16 +36,22 @@ router
     const { articleId } = req.params;
     const { title, url, description, categories } = req.body;
     const imageUrl = req.file.path;
-    Category.findOne({ name: categories }).then((category) =>
-      Article.findByIdAndUpdate(articleId, {
+    Category.findOne( categories )
+    .then((category) =>
+    { console.log(category)
+        const categoryID = category._id
+        Article.findByIdAndUpdate(articleId, {
         title,
         url,
         description,
-        category: category._id,
+        category: categoryID,
         image: imageUrl,
-      })
-    );
-    res.redirect("/profile").catch((err) => console.log(err));
+      })}
+     
+    )
+    .catch((err) => console.log(err))
+    .then(()=>res.redirect("/profile"))
+    .catch((err) => console.log(err))
   });
 
 //Create a new article
