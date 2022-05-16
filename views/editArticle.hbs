@@ -2,22 +2,22 @@
   <h2>Edit Form</h2>
   <form action="/profile/{{name._id}}/edit" method="POST" enctype="multipart/form-data">
 
-    <label>
+    <label for="title">
       Title
       <input type="text" name="title" placeholder="title" value="{{name.title}}"/>
     </label>
 
-    <label>
+    <label for="url">
       URL
       <input type="url" name="url" placeholder="url" value="{{name.url}}"/>
     </label>
 
-    <label>
+    <label for="description">
       Description
       <input type="text" name="description" placeholder="description" value="{{name.description}}"/>
     </label>
 
-    <label>
+    <label for="imageUrl">
       Image:
         <input type="file" name="imageUrl" placeholder="image" value="{{name.image}}"/>
     </label>
@@ -30,7 +30,7 @@
         {{#if chosenCat}}
         <option value="{{_id}}" selected>{{name}}</option>
         {{else}}
-        <option value="{{_id}}">{{name}}</option>
+        <option value="{{_id}}" >{{name}}</option>
         {{/if}}
        {{/each}}
       </select>

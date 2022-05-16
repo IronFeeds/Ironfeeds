@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const isLoggedIn = require("../middleware/isLoggedIn")
 
 const User = require("../models/User.model");
 const Article = require("../models/Article.model");
@@ -11,7 +12,10 @@ const Handlebars = require("handlebars");
 //delete article
 router.post("/profile/:articleId/delete", (req, res) => {
   const { articleId } = req.params;
+  const userId = req.session.currentUser._id
   Article.findByIdAndDelete(articleId)
+  .then(()=>User.findByIdAndUpdate(userId, { $pull: { createdArticles: articleId } }))
+  
     .then(() => res.redirect("/profile"))
     .catch((err) => console.log(err));
 });
@@ -25,10 +29,11 @@ router
       .populate("category")
       .then((article) =>
         Category.find().then((categories) => {
-          res.render("editArticle", { name: article, categories }),
-            Handlebars.registerHelper("chosenCat", function () {
+          Handlebars.registerHelper("chosenCat", function () {
               return categories._id === article.category;
             });
+            res.render("editArticle", { name: article, categories })
+            
         })
       );
   })
@@ -36,9 +41,9 @@ router
     const { articleId } = req.params;
     const { title, url, description, categories } = req.body;
     const imageUrl = req.file.path;
-    Category.findOne( categories )
+    Category.findById( categories )
     .then((category) =>
-    { console.log(category)
+    { console.log("cateories", categories)
         const categoryID = category._id
         Article.findByIdAndUpdate(articleId, {
         title,
@@ -46,12 +51,13 @@ router
         description,
         category: categoryID,
         image: imageUrl,
-      })}
+      }, {new:true}) 
+      .then(()=>res.redirect("/profile"))}
+     
      
     )
     .catch((err) => console.log(err))
-    .then(()=>res.redirect("/profile"))
-    .catch((err) => console.log(err))
+    
   });
 
 //Create a new article
@@ -88,7 +94,8 @@ router
      })
           
 //Go to profile
-router.route("/profile").get((req, res) => {
+router.route("/profile")
+.get(isLoggedIn, (req, res) => {
   const user = req.session.currentUser._id;
   User.findById(user)
     .populate("createdArticles savedArticles")
