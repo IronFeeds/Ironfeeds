@@ -59,24 +59,28 @@ router
     const { title, url, description, categories } = req.body;
     const imageUrl = req.file.path;
     Category.findById(categories)
-      .then((category) => {
-        const categoryId = category._id;
-        Article.create({
-          title,
-          url,
-          description: description,
-          category: categoryId,
-          image: imageUrl,
-        }).then((createdArticle) => {
-          const articleId = createdArticle._id;
-          User.findById(user._id).then((user) => {
-            user.createdArticles.push(articleId);
-          });
-        });
-      })
-      .then(() => res.redirect("/profile"))
-      .catch((err) => console.log(err));
-  });
+    .then((category)=>{
+    const categoryId = category._id
+    Article.create({
+        title,
+        url,
+        description: description,
+        category:categoryId,
+        image: imageUrl
+    })
+    .then((createdArticle)=> 
+          {
+          const articleId = createdArticle._id 
+          User.findByIdAndUpdate(user._id, {$push: { createdArticles : articleId }}, {new:true})
+          .then((user)=>console.log(user))
+         
+        })
+          
+        })
+        .then(()=>res.redirect("/profile"))
+        .catch(err=>console.log(err))          
+     })
+          
 
 //Go to profile
 router.route("/profile").get((req, res) => {
