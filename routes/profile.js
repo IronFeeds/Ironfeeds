@@ -81,7 +81,6 @@ router
         .catch(err=>console.log(err))          
      })
           
-
 //Go to profile
 router.route("/profile").get((req, res) => {
   const user = req.session.currentUser._id;
