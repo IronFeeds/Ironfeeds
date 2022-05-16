@@ -3,8 +3,15 @@
 <form action="/categories" method="POST">
 
   {{#each categories}}
+  {{#if checked}}
+  <input checked type="checkbox" value="{{_id}}" name="{{name}}" id="{{name}}" />
+    <label for="{{name}}">{{name}}</label>
+    {{else}}
     <input type="checkbox" value="{{_id}}" name="{{name}}" id="{{name}}" />
     <label for="{{name}}">{{name}}</label>
+  {{/if}}
+
+    
   {{/each}}
 
     <button type="submit">Save</button>
