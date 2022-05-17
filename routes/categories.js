@@ -5,14 +5,10 @@ const User = require("../models/User.model");
 const Handlebars = require("handlebars");
 const router = express.Router();
 
-//choose a category
+//choose categories
 router
   .route("/categories")
   .get((req, res) => {
-    /*     category = await Category.find();
-    res.render("categories", { categories: category });
- */
-
     async function catuser() {
       const categories = await Category.find();
       const user = await User.findOne({ _id: req.session.currentUser._id });
@@ -27,14 +23,6 @@ router
           checked: checked,
         };
       });
-
-      /*   for (const category of categories) {
-        Handlebars.registerHelper("userCat", function () {
-          User.find({_id: req.session.currentUser._id, category: { $in: category._id } })
-          .then((result)=>{if(result){return true}}) 
-         
-        });
-      } */
       res.render("categories", { categories: categoriesWithChecked });
     }
     catuser();
