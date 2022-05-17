@@ -3,45 +3,16 @@
 <form action="/categories" method="POST">
 
   {{#each categories}}
+  {{#if checked}}
+  <input checked type="checkbox" value="{{_id}}" name="{{name}}" id="{{name}}" />
+    <label for="{{name}}">{{name}}</label>
+    {{else}}
     <input type="checkbox" value="{{_id}}" name="{{name}}" id="{{name}}" />
     <label for="{{name}}">{{name}}</label>
+  {{/if}}
+
+    
   {{/each}}
 
     <button type="submit">Save</button>
   </form>
-
-
-
-{{! <div id="form">
-
-  <h1>Categories</h1>
-  <form action="/categories" method="POST">
-      <div class="category">
-        <h2>General</h2>
-        <img src="" />
-      </div >
-      <div class="category">
-        <h2>Business</h2>
-        <img src="" />
-      </div>
-      <div class="category">
-        <h2>Entertainment</h2>
-        <img src="" />
-      </div>
-      <div class="category">
-        <h2>Health</h2>
-        <img src="" />
-      </div>
-      <div class="category">
-        <h2>Science</h2>
-        <img src="" />
-      </div>
-      <div class="category">
-        <h2>Sports</h2>
-        <img src="" />
-      </div>
-
-     <button type="submit">Save</button>
-  </form>
-
-</div> }}
