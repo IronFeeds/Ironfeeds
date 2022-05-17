@@ -8,7 +8,8 @@ const saltRounds = 5;
 const User = require("../models/User.model");
 const res = require("express/lib/response");
 
-const isNotLoggedIn = require('./../middleware/isNotLoggedIn')
+const isLoggedIn = require("../middleware/isLoggedIn")
+// const isNotLoggedIn = require('./../middleware/isNotLoggedIn')
 
 
         // router.route("/signup")
@@ -24,15 +25,15 @@ router
    
     const { name, email, password } = req.body;
 
-    // if (!username || !email || !password){
-    //   res.render("login", {errorMessage: "All fields required"})
-    //   return
-    // }
+    if (!name || !email || !password){
+      res.render("login", {errorMessage: "All fields required"})
+      return
+    }
     
-    // const regex = / (?=.*\d) (?=.*[a-z]) (?=.*[A-Z]).{6,} /
-    // if(regex.test(password)){
-    //   res.render("login", {errorMessage: "Password must follow guidelines"})
-    // }
+    const regex = / (?=.*\d) (?=.*[a-z]) (?=.*[A-Z]).{6,} /
+    if(regex.test(password)){
+      res.render("login", {errorMessage: "Password must follow guidelines"})
+    }
 
     bcrypt
       .genSalt(saltRounds)
@@ -53,7 +54,7 @@ router
         res.redirect("/categories");
       })
       .catch((err) =>
-        res.render("signup", { errorMessage: err.message })
+        res.render("signup", { errorMessage: `Database error: ${err.message}` })
       )
       .catch((error) => next(error));
   });
@@ -83,8 +84,9 @@ router
       })
       .catch((err) => console.log(err));
   });
+  
 
-  router.get('/logout', (req, res) => {
+  router.get('/logout', isLoggedIn, (req, res, ) => {
     req.session.destroy((err) => {
       if (err) {
         res.render('error', { message: 'Something went wrong! Yikes!' });
