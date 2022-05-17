@@ -10,7 +10,6 @@ const { count } = require("../models/Article.model");
 
 router.get("/", (req, res) => {
   
-  /////////////
   Article.countDocuments()
   .then((count)=>{
       //pagination////////
