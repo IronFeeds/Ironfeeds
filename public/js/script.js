@@ -7,6 +7,7 @@ document.addEventListener(
     for (const form of forms) {
       form.addEventListener("submit", (event) => {
         event.preventDefault();
+        event.target
         console.log("worked");
       });
     }
