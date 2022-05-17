@@ -51,6 +51,7 @@ router
         })
         .then((userFromDB) => {
           console.log("Newly created user is: ", userFromDB);
+          req.session.currentUser = userFromDB;
         res.redirect("/categories");
       })
       .catch((err) =>
