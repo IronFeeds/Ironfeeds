@@ -73,23 +73,4 @@ router.post("/user/save/:articleid", (req, res) => {
   /*      .then(()=> res.redirect(`/#${articleid}`))  */
 });
 
-//Pagination
-router.get("/", async (req, res) => {
-  try {
-    let { page = 1, perPage = 10 } = req.query;
-    page = parseInt(page);
-    perPage = parseInt(perPage);
-
-    const limit = perPage;
-    const skip = (page - 1) * perPage;
-
-    /*  const users = await User.find({}, {}, {limit: limit, skip: skip}); */
-    const users = await User.find().limit(limit).skip(skip);
-    console.log("holaaaaaaaaaaaaaaa", users);
-    res.render("index", users);
-  } catch {
-    (err) => console.log(err);
-  }
-});
-
 module.exports = router;
