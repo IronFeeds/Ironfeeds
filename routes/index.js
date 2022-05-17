@@ -1,6 +1,5 @@
 const router = require("express").Router();
-const API =
-  "http://api.mediastack.com/v1/news?access_key=" + process.env.API_KEY;
+
 const Article = require("../models/Article.model");
 const User = require("../models/User.model");
 const Category = require("../models/Category.model");
@@ -32,23 +31,44 @@ router.get("/", isLoggedIn, (req, res) => {
       let nextPage = page + 1;
       if(nextPage >= totPages ) nextPage = totPages;
 
-  Article.find()
+
+    Article.find()
     .populate("category")
     .limit(limit)
     .skip(skip)
     .then((articles) =>{
+      User.findById(req.session.currentUser._id)
+      .then((user)=>{
+        
+        const userCategories = user.category
+       
+        const filteredArticles =[]
+        function filterArticle(article){
+          userCategories.some((category) => {
+            if (category.equals(article.category._id) )
+            filteredArticles.push(article)
+            console.log(category.equals(article.category._id) )
+          })
+        }
+        articles.forEach(article=>filterArticle(article))
+          
+          console.log("filtered", filteredArticles)     
+  
+ 
       res.render("index", {
         name: articles,
         page,
         prevPage,
         nextPage,
         perPage,
-        totPages
+        totPages,
+        name: filteredArticles
       })}
     )
-})
-.catch((err) => console.log(err));
-});
+    
+})})
+.catch((err) => console.log(err));  
+ })
 
 router.post("/user/save/:articleid", (req, res) => {
   const user = req.session.currentUser;
@@ -70,26 +90,9 @@ router.post("/user/save/:articleid", (req, res) => {
       }
     }
   );
-  /*      .then(()=> res.redirect(`/#${articleid}`))  */
+  
 });
 
-//Pagination
-router.get("/", async (req, res) => {
-  try {
-    let { page = 1, perPage = 10 } = req.query;
-    page = parseInt(page);
-    perPage = parseInt(perPage);
 
-    const limit = perPage;
-    const skip = (page - 1) * perPage;
-
-    /*  const users = await User.find({}, {}, {limit: limit, skip: skip}); */
-    const users = await User.find().limit(limit).skip(skip);
-    console.log("holaaaaaaaaaaaaaaa", users);
-    res.render("index", users);
-  } catch {
-    (err) => console.log(err);
-  }
-});
 
 module.exports = router;
