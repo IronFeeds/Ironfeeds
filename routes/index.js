@@ -1,6 +1,5 @@
 const router = require("express").Router();
-const API =
-  "http://api.mediastack.com/v1/news?access_key=" + process.env.API_KEY;
+
 const Article = require("../models/Article.model");
 const User = require("../models/User.model");
 const Category = require("../models/Category.model");
@@ -10,7 +9,27 @@ const isLoggedIn = require("../middleware/isLoggedIn")
 router.get("/", isLoggedIn, (req, res) =>
   Article.find()
     .populate("category")
-    .then((articles) => res.render("index", { name: articles }))
+    .then((articles) =>{
+      User.findById(req.session.currentUser._id)
+      .then((user)=>{
+        
+        const userCategories = user.category
+       
+        const filteredArticles =[]
+        function filterArticle(article){
+          userCategories.some((category) => {
+            if (category.equals(article.category._id) )
+            filteredArticles.push(article)
+            console.log(category.equals(article.category._id) )
+          })
+        }
+        articles.forEach(article=>filterArticle(article))
+          
+          console.log("filtered", filteredArticles)
+             res.render("index", { name: filteredArticles })
+  })
+  })
+    
 );
 
 router.post("/user/save/:articleid", (req, res) => {
