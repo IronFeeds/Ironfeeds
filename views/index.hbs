@@ -28,3 +28,14 @@
     </form>
 </div>
 {{/each}}
+
+{{!--- Pagination ---}}
+<div id="pagination"></div>
+<p> totPages: {{ totPages }}</p>
+<p> perPage: {{ perPage }}</p>
+<p> nextPage: {{ nextPage }}</p>
+<p> prevPage: {{ prevPage }}</p>
+<p> page: {{ page }}</p>
+<a href="/?page={{prevPage}}&perPage={{perPage}}">Prev</a>
+<a href="/?page={{nextPage}}&perPage={{perPage}}">Next</a>
+
