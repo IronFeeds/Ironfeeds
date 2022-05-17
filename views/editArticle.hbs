@@ -27,7 +27,7 @@
     <label for="categories">Choose a News Category</label>
       <select name="categories">
         {{#each categories}}
-        {{#if chosenCat}}
+        {{#if chosen}}
         <option value="{{_id}}" selected>{{name}}</option>
         {{else}}
         <option value="{{_id}}" >{{name}}</option>

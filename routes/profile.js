@@ -6,7 +6,7 @@ const User = require("../models/User.model");
 const Article = require("../models/Article.model");
 const Category = require("../models/Category.model");
 const fileUploader = require("./../config/cloudinary");
-const isLoggedIn = require("../middleware/isLoggedIn")
+
 
 const Handlebars = require("handlebars");
 
@@ -30,10 +30,16 @@ router
       .populate("category")
       .then((article) =>
         Category.find().then((categories) => {
-          Handlebars.registerHelper("chosenCat", function () {
-              return categories._id === article.category;
-            });
-            res.render("editArticle", { name: article, categories })
+            const articleCategory = article.category
+          const categoriesWithChosen = categories.map((category)=> {
+            const chosen = articleCategory.equals(category._id)
+            return {
+                _id: category._id,
+                name: category.name,
+                chosen: chosen,
+              };
+          })
+            res.render("editArticle", { name: article, categories:categoriesWithChosen })
             
         })
       );
@@ -41,21 +47,26 @@ router
   .post(fileUploader.single("imageUrl"), (req, res) => {
     const { articleId } = req.params;
     const { title, url, description, categories } = req.body;
-    const imageUrl = req.file.path;
+   
     Category.findById( categories )
     .then((category) =>
-    { console.log("cateories", categories)
-        const categoryID = category._id
+    { const categoryID = category._id
+        console.log("cateories", categoryID)
+        
         Article.findByIdAndUpdate(articleId, {
         title,
         url,
         description,
-        category: categoryID,
-        image: imageUrl,
+        category: categoryID
       }, {new:true}) 
+      .then(()=>{
+          if(req.file){
+            const imageUrl = req.file.path;
+            Article.findByIdAndUpdate(articleId,
+                {image: imageUrl}, {new:true})
+          }
+      })
       .then(()=>res.redirect("/profile"))}
-     
-     
     )
     .catch((err) => console.log(err))
     
