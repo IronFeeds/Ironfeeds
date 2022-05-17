@@ -5,6 +5,7 @@ const User = require("../models/User.model");
 const Article = require("../models/Article.model");
 const Category = require("../models/Category.model");
 const fileUploader = require("./../config/cloudinary");
+const isLoggedIn = require("../middleware/isLoggedIn")
 
 const Handlebars = require("handlebars");
 
@@ -19,7 +20,7 @@ router.post("/profile/:articleId/delete", (req, res) => {
 //Edit article
 router
   .route("/profile/:articleId/edit")
-  .get((req, res) => {
+  .get(isLoggedIn, (req, res) => {
     const { articleId } = req.params;
     Article.findById(articleId)
       .populate("category")
@@ -57,7 +58,7 @@ router
 //Create a new article
 router
   .route("/profile/add")
-  .get((req, res) => {
+  .get(isLoggedIn, (req, res) => {
     Category.find().then((cat) => res.render("addArticles", { cat }));
   })
   .post(fileUploader.single("imageUrl"), (req, res) => {
@@ -88,7 +89,7 @@ router
      })
           
 //Go to profile
-router.route("/profile").get((req, res) => {
+router.route("/profile").get(isLoggedIn, (req, res) => {
   const user = req.session.currentUser._id;
   User.findById(user)
     .populate("createdArticles savedArticles")

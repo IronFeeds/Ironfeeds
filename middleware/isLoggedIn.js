@@ -2,7 +2,7 @@ function isLoggedIn(req, res, next) {
 	if (req.session.currentUser) {
 		next();
 	} else {
-		res.redirect('/views/profile');
+		res.redirect('/login');
 	}
 }
 

@@ -4,11 +4,12 @@ const User = require("../models/User.model");
 
 const Handlebars = require("handlebars");
 const router = express.Router();
+const isLoggedIn = require("../middleware/isLoggedIn")
 
 //choose categories
 router
   .route("/categories")
-  .get((req, res) => {
+  .get(isLoggedIn, (req, res) => {
     async function catuser() {
       const categories = await Category.find();
       const user = await User.findOne({ _id: req.session.currentUser._id });
@@ -37,13 +38,5 @@ router
       .catch((err) => console.log(err));
   });
 
-//edit category
-router.route("/categories/:id/edit").get((req, res) => {
-  const { id } = req.params;
-
-  Category.findById(id).then((category) => {
-    res.render("categories");
-  });
-});
 
 module.exports = router;
