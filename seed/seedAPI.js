@@ -6,7 +6,7 @@ const Category = require("../models/Category.model")
 
 const Article = require("../models/Article.model")
 
-const API = "http://api.mediastack.com/v1/news?access_key=" + process.env.API_KEY +"&sources=en"
+const API = "http://api.mediastack.com/v1/news?access_key=" + process.env.API_KEY +"&sources=en"+"&limit=100"
 
 axios.get(API)
 
