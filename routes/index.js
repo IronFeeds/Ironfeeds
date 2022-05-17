@@ -73,7 +73,8 @@ router.get("/", isLoggedIn, (req, res) => {
 router.post("/user/save/:articleid", (req, res) => {
   const user = req.session.currentUser;
   const { articleid } = req.params;
-  User.findOne({ _id: user._id, $in: { savedArticles: articleid } }).then(
+  User.findOne({ _id: user._id, $in: { savedArticles: articleid } })
+  .then(
     (user) => {
       if (!user) {
         User.findByIdAndUpdate(
