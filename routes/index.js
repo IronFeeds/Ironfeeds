@@ -4,11 +4,13 @@ const API =
 const Article = require("../models/Article.model");
 const User = require("../models/User.model");
 const Category = require("../models/Category.model");
+const isLoggedIn = require("../middleware/isLoggedIn")
+
 const { count } = require("../models/Article.model");
 
 //Save an article
 
-router.get("/", (req, res) => {
+router.get("/", isLoggedIn, (req, res) => {
   
   Article.countDocuments()
   .then((count)=>{
