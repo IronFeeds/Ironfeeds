@@ -15,6 +15,9 @@
 
 
 body {
-	font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-family: 'Newsreader', serif;
+    /* font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Roboto', sans-serif; */
 	
 }
