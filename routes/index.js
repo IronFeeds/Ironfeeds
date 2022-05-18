@@ -33,22 +33,42 @@ router.get("/", isLoggedIn, (req, res) => {
       if (nextPage >= totPages) nextPage = totPages;
 
       Article.find()
-        .populate("category")
-        .limit(limit)
-        .skip(skip)
-        .then((articles) => {
-          res.render("index", {
-            name: articles,
-            page,
-            prevPage,
-            nextPage,
-            perPage,
-            totPages,
-          });
-        });
-    })
-    .catch((err) => console.log(err));
-});
+      .populate("category")
+      .limit(limit)
+      .skip(skip)
+      .then((articles) =>{
+        User.findById(req.session.currentUser._id)
+        .then((user)=>{
+  
+          const userCategories = user.category
+  
+          const filteredArticles =[]
+          function filterArticle(article){
+            userCategories.some((category) => {
+              if (category.equals(article.category._id) )
+              filteredArticles.push(article)
+              console.log(category.equals(article.category._id) )
+            })
+          }
+          articles.forEach(article=>filterArticle(article))
+  
+            console.log("filtered", filteredArticles)     
+  
+  
+        res.render("index", {
+          name: articles,
+          page,
+          prevPage,
+          nextPage,
+          perPage,
+          totPages,
+          name: filteredArticles
+        })}
+      )
+  
+  })})
+  .catch((err) => console.log(err));  
+   })
 
 router.post("/user/save/:articleId", (req, res, next) => {
   const user = req.session.currentUser;
