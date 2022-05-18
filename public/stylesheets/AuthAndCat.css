@@ -1,12 +1,12 @@
 @import url("/public/stylesheets/style.css");
 
-* {
+/* * {
     margin:10px;
-}
+} */
 
-body{
+/* body{
     background-color: rgba(0,0,0,.05);
-}
+} */
 
 button.btn-login{
     margin-top: 50px;
@@ -15,9 +15,9 @@ button.btn-login{
     padding: 10;
 }
 
-form {
+/* form {
     border: 3px solid #f1f1f1;
-  }
+  } */
 
   /* Full-width inputs */
    input[type=text], input[type=password] {
@@ -29,7 +29,7 @@ form {
   } 
 
   /* Set a style for all buttons */
-button {
+/* button {
     background-color: #04AA6D;
     color: white;
     padding: 14px 20px;
@@ -37,7 +37,7 @@ button {
     border: none;
     cursor: pointer;
     width: 100%;
-  }
+  } */
 
   .btn-login:hover {
       background-color: black;
@@ -45,9 +45,9 @@ button {
 
 
   /* Add a hover effect for buttons */
-button:hover {
+/* button:hover {
     opacity: 0.8;
-  }
+  } */
 
 .formLogin {
     padding: 80px;
