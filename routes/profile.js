@@ -111,7 +111,16 @@ router
 router.route("/profile").get(isLoggedIn, (req, res) => {
   const user = req.session.currentUser._id;
   User.findById(user)
-    .populate("createdArticles savedArticles")
+    .populate({
+      path: "createdArticles",
+      populate:{
+        path: "category"
+      }
+    }).populate({path: "savedArticles",
+    populate:{
+      path: "category"
+    }})
+
     .then((user) => {
       res.render("profile", {
         user,
