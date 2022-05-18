@@ -55,12 +55,13 @@ router.post("/user/save/:articleId", (req, res, next) => {
   const { articleId } = req.params;
   User.findById(user._id)
   .then((user) => {
-    if(articleId in user.savedArticles){
+    if(user.savedArticles.includes(articleId)){
       user.savedArticles.splice(user.savedArticles.indexOf(articleId), 1)
     }else{
       user.savedArticles.push(articleId)
     }
-    return user.save()
+    user.save()
+    res.send("Added article to favourites")
     }
   );
   /*      .then(()=> res.redirect(`/#${articleid}`))  */
