@@ -23,7 +23,7 @@ body {
 
 .button-green{
 	background-color: var(--green-color);
-	border-radius: 3px;
+	border-radius: 3px; 
 	color: var(--white-color);
 	border: none;
 	padding-left: 2em;
