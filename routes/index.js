@@ -66,4 +66,18 @@ router.post("/user/save/:articleId", (req, res, next) => {
   /*      .then(()=> res.redirect(`/#${articleid}`))  */
 });
 
+router.post("/user/unsave/:articleId", (req, res, next) => {
+  const user = req.session.currentUser;
+  const { articleId } = req.params;
+  User.findById(user._id)
+  .then((user) => {
+    
+      user.savedArticles.splice(user.savedArticles.indexOf(articleId), 1)
+    
+    return user.save()
+    }
+  )
+   .then(()=> res.redirect("/profile"))
+});
+
 module.exports = router;

@@ -93,15 +93,19 @@ router
         image: imageUrl
     })
     .then((createdArticle)=> 
-          {
+    User.findById(user._id)
+    .then((user)=> {
           const articleId = createdArticle._id 
-          User.findByIdAndUpdate(user._id, {$push: { createdArticles : articleId }}, {new:true})
-          .then((user)=>console.log(user))
+          user.createdArticles.push(articleId)
+          return user.save()
+          // User.findByIdAndUpdate(user._id, {$push: { createdArticles : articleId }}, {new:true})
+          // .then((user)=>console.log(user))
          
-        })
+        }).then(()=>res.redirect("/profile"))
+         )
           
         })
-        .then(()=>res.redirect("/profile"))
+        
         .catch(err=>console.log(err))          
      })
           
