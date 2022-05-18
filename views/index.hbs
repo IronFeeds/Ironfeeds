@@ -22,9 +22,8 @@
         <div class="grid2Col">
         <div class="grid">
             <h3>{{this.title}}</h3>
-            <p>{{this.published_at}}</p>
             {{!-- <p>{{this.description}}</p> --}}
-            <p><span>Category: {{this.category.name}}</span> <span>Country: {{this.country}}</span></p>
+            <p><span>Category: {{this.category}}</span> <span>Country: {{this.country}}</span></p>
         </div>
         {{#if this.image}}
            <img src="{{this.image}}" alt="{{this.title}}">
@@ -36,7 +35,14 @@
             <div class="flexWithSpace">
             <a class="iconButton" href="{{this.url}}"><img src="/images/link.png" alt=""></a>
             <form action="/user/save/{{this._id}}" method="post">
-                <button class="iconButton" type="submit"><img src="/images/bookmark saved.png" alt=""></button>
+
+                <button class="iconButton" type="submit">
+                {{#if this.saved}}  
+                    <img src="/images/bookmark saved.png" alt="">
+                    {{else}}
+                    <img src="/images/bookmark unsaved.png" alt="">
+                {{/if}}
+                </button>
             </form>
         </div>
       
