@@ -1,1 +1,87 @@
 @import url("/public/stylesheets/style.css");
+
+* {
+    margin:10px;
+}
+
+body{
+    background-color: rgba(0,0,0,.05);
+}
+
+button.btn-login{
+    margin-top: 50px;
+    border-radius: 30px;
+    width: 220px;
+    padding: 10;
+}
+
+form {
+    border: 3px solid #f1f1f1;
+  }
+
+  /* Full-width inputs */
+   input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+  } 
+
+  /* Set a style for all buttons */
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .btn-login:hover {
+      background-color: black;
+  }
+
+
+  /* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+  }
+
+.formLogin {
+    padding: 80px;
+    margin-top: 40px;
+}
+
+.login{
+    margin-left:80px;
+    margin-top: -20px;
+    opacity: 5;
+}
+
+.logo{
+    width: 210px;
+    height: 210px;
+    margin-top: -80px;
+    background-color: var(--grey-text-color);
+}
+
+.formSignup{
+    text-align: center;
+    padding: 80px;
+    padding-bottom: 40px;
+    margin-top: -180px;
+}
+
+.logoSignup{
+    text-align: center;
+    padding: auto;
+    display:flex;
+}
+
+#signUpPage{
+    padding: 80px;
+    margin-top: 40px;
+
+}
