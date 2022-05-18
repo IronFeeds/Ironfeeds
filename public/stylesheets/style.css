@@ -1,9 +1,10 @@
 :root{
 	--white-color: #fff;
 	--black-color: #000000;
-	--light-grey-color: #D4BFBF;
-	--orange-color: #FFA916;
-	--red-color: #FF0F0F;
+	--green-color: #2bb24c;
+	--dark-green-color: #22903d;
+	--grey-text-color: #757575;
+	--grey-background-color: rgba(0,0,0,.05)
 }
 
 
@@ -17,7 +18,43 @@
 body {
 	font-size: 16px;
 	font-family: 'Newsreader', serif;
-    /* font-family: 'Nunito Sans', sans-serif;
-    font-family: 'Roboto', sans-serif; */
 	
+}
+
+.button-green{
+	background-color: var(--green-color);
+	border-radius: 3px;
+	color: var(--white-color);
+	border: none;
+	padding-left: 2em;
+	padding-right: 2em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	cursor: pointer;
+}
+
+.button-green:hover{
+	background-color: var(--dark-green-color);
+}
+
+.button-white{
+	background-color: var(--white-color);
+	border-radius: 3px;
+	color: var(--green-color);
+	border: var(--green-color) solid 2px;
+	padding-left: 2em;
+	padding-right: 2em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	cursor: pointer;
+}
+
+.button-white:hover{
+	background-color: var(--green-color);
+	color: var(--white-color);
+}
+
+.input-bottom-line{
+	border: none;
+	border-bottom: #2bb24c 2px solid;
 }
