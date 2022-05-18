@@ -29,14 +29,15 @@ axios.get(API)
             
             })}
             )
+    .then(()=>{
+    console.log(`${Article.length} articles successfully created`)
+    // mongoose.connection.close()
+})
+  .catch(()=>console.log("couldn't add the drones"))
         
     )
 })
 
-.then(()=>{
-    console.log(`${Article.length} articles successfully created`)
-    mongoose.connection.close()
-})
-  .catch(()=>console.log("couldn't add the drones"))
+
 
 
