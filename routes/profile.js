@@ -98,12 +98,9 @@ router
           const articleId = createdArticle._id 
           user.createdArticles.push(articleId)
           return user.save()
-          // User.findByIdAndUpdate(user._id, {$push: { createdArticles : articleId }}, {new:true})
-          // .then((user)=>console.log(user))
-         
+          
         }).then(()=>res.redirect("/profile"))
          )
-          
         })
         
         .catch(err=>console.log(err))          
@@ -116,7 +113,6 @@ router.route("/profile").get(isLoggedIn, (req, res) => {
   User.findById(user)
     .populate("createdArticles savedArticles")
     .then((user) => {
-      console.log(user);
       res.render("profile", {
         user,
 
