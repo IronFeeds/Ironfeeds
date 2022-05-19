@@ -98,7 +98,7 @@ router.post("/user/save/:articleId", (req, res, next) => {
       user.savedArticles.push(articleId)
     }
     user.save()
-    res.send("Added article to favourites")
+    res.json("Added article to favourites!!!")
     }
   );
   /*      .then(()=> res.redirect(`/#${articleid}`))  */

@@ -1,11 +1,11 @@
 <a href="/">Go to Newsfeed</a>
-<div class="flexCenter">
-<img class="roundImage" src="{{user.image}}" alt="{{user.name}}"> 
-<h2>{{user.name}}</h2>
-</div>
 <div class="flexEnd">
     <a href="/profile/add"><img src="/images/add-button.png" alt=""></a>
     <p>Add Article</p>
+</div>
+<div class="flexCenter">
+<img class="roundImage" src="{{user.image}}" alt="{{user.name}}"> 
+<h2>{{user.name}}</h2>
 </div>
 
 <nav class="flexBlackBackground">
@@ -63,7 +63,7 @@
         </div>
       
             <div class="flexWithSpace">
-            <a class="link" href="{{this.url}}"><img src="/images/link.png" alt=""></a>
+            <a class="iconButton" href="{{this.url}}"><img src="/images/link.png" alt=""></a>
             <a class ="iconButton" href="/profile/{{this._id}}/edit"><img src="/images/edit.png" alt=""></a>
             <form action="/profile/{{this._id}}/delete" method="post">
                 <button class="iconButton" type="submit"><img src="/images/delete.png" alt=""></button>

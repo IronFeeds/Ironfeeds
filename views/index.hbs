@@ -34,13 +34,13 @@
       
             <div class="flexWithSpace">
             <a class="iconButton" href="{{this.url}}"><img src="/images/link.png" alt=""></a>
-            <form action="/user/save/{{this._id}}" method="post">
+            <form class="saveFav" action="/user/save/{{this._id}}" method="post">
 
                 <button class="iconButton" type="submit">
                 {{#if this.saved}}  
-                    <img src="/images/bookmark saved.png" alt="">
+                    <img class="saveIcon saved" src="" alt="">
                     {{else}}
-                    <img src="/images/bookmark unsaved.png" alt="">
+                    <img class="saveIcon unsaved" src="" alt="">
                 {{/if}}
                 </button>
             </form>
