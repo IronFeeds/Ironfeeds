@@ -1,5 +1,21 @@
 @import url("style.css");
 
+.container{
+    height:100%;
+    width: 63%;
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    margin-top: 15%;
+    border-radius: 25px;
+    background-color: rgba(0,0,0,.05);
+    padding: 50px;
+    /* margin-top: 5%;
+    margin-left: 15px; */
+  }
+
 
 .two{
     
@@ -38,12 +54,6 @@
     padding: 80px;
     padding-bottom: 40px;
     margin-top: -180px;
-}
-
-.logoSignup{
-    text-align: center;
-    padding: auto;
-    display:flex;
 }
 
 #signUpPage{

@@ -1,10 +1,7 @@
 <div class="container" id="signUpImg">
-   <img src="/images/logo.png">
-</div>
+   <img class="logo" src="/images/logo.png">
 
-
-<div id="form2">
-  <form action="/signup" method="POST">
+  <form id="form2" action="/signup" method="POST">
   <h2 class="signUp">Sign up</h2>
   <br><br>
     <label>
@@ -40,4 +37,6 @@
   {{#if errorMessage}}
     <p>There was a problem: {{errorMessage}}</p>
   {{/if}}
+
+
 </div>
