@@ -1,37 +1,33 @@
 
-<div id="signUpPage">
+<div id="margin">
 
-<div id="signUpImg">
-   <img src="/images/logo.png">
-</div>
-
-
-<div id="form2">
-  <form action="/signup" method="POST">
-  <h2 class="signUp">Sign up</h2>
+  <form class="formLogin" action="/signup" method="POST">
+  <img class="logoLogin" src="/images/logo.png">
+  <h2 class="login">Sign up</h2>
     <label>
       Username
-      <input type="text" name="name" placeholder="Username" />
+        <label>
+      <input class="input-bottom-line" type="text" name="username" placeholder="Username" />
     </label>
 
     <label>
       Email
-      <input type="text" name="email" placeholder="Email" />
+      <input class="input-bottom-line" type="text" name="email" placeholder="Email" />
     </label>
 
     <label>
       Password
-      <input type="password" name="password" placeholder="********" />
+     <input class="input-bottom-line" type="password" name="password" placeholder="********" />
     </label>
 
-    <button type="submit">Create account</button>
-
+        <button class="button-green width" type="submit">Sign up</button>
   </form>
+
+  <form action="/categories" method="POST"></form>
 
 
   {{#if errorMessage}}
     <p>There was a problem: {{errorMessage}}</p>
   {{/if}}
-</div>
 
 </div>

@@ -1,23 +1,12 @@
 @import url("/public/stylesheets/style.css");
 
-* {
+/* * {
     margin:10px;
-}
+} */
 
 body{
     background-color: rgba(0,0,0,.05);
 }
-
-button.btn-login{
-    margin-top: 50px;
-    border-radius: 30px;
-    width: 220px;
-    padding: 10;
-}
-
-form {
-    border: 3px solid #f1f1f1;
-  }
 
   /* Full-width inputs */
    input[type=text], input[type=password] {
@@ -29,15 +18,9 @@ form {
   } 
 
   /* Set a style for all buttons */
-button {
-    background-color: #04AA6D;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
+ .width {
     width: 100%;
-  }
+  } 
 
   .btn-login:hover {
       background-color: black;
@@ -55,15 +38,16 @@ button:hover {
 }
 
 .login{
-    margin-left:80px;
+    margin-left:140px;
     margin-top: -20px;
     opacity: 5;
 }
 
-.logo{
-    width: 210px;
-    height: 210px;
-    margin-top: -80px;
+.logoLogin{
+    width: 240px;
+    height: 240px;
+    margin-top: -70px;
+    margin-left: 60px;
     background-color: var(--grey-text-color);
 }
 
@@ -71,17 +55,24 @@ button:hover {
     text-align: center;
     padding: 80px;
     padding-bottom: 40px;
-    margin-top: -180px;
+    margin-top: -140px;
 }
 
 .logoSignup{
-    text-align: center;
-    padding: auto;
-    display:flex;
+    width: 220px;
+    height: 220px;
+    margin-left: 70px;
 }
 
 #signUpPage{
     padding: 80px;
-    margin-top: 40px;
+    padding-bottom: 40px;
+    margin-top: -120px;
+}
 
+.signUp{
+    margin-left:150px;
+    margin-top: 20px;
+    margin-bottom: 40;
+    opacity: 5;
 }
