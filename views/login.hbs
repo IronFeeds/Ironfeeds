@@ -1,28 +1,39 @@
-<div>
-
-  <form class="formLogin" action="/login" method="POST">
-  <img class="logo" src="/images/logo.png">
-  <h2 class="login">Login</h2>
-
+<div class="containerSign">
+  <div><img class="logo" src="/images/logo.png"></div>
   <br><br>
-    <label><br>
+  <h2 class="login">Login</h2>
+  
+  <br><br>
+
+
+  <form id="form2" action="/login" method="POST">
+  
+    <label class="fields">
       Email
-      <input class="input-bottom-line" type="text" name="email" placeholder="Email" />
-    <br><br>
+      <br><br>
+      <input class="input-bottom-line log" type="text" name="email" placeholder="Email" />    
     </label>
 
-    <label>Password
-      <input class="input-bottom-line" type="password" name="password" placeholder="********" />
-    </label>
     <br><br>
 
-    <button class="button-green" type="submit">Login</button>
+    <label class="fields">
+      Password
+      <br><br>
+      <input class="input-bottom-line log" type="password" name="password" placeholder="********" />
+   
+    </label>
+    
+    <br><br><br>
+
+    <button class="button-green btn" type="submit">Login</button>
 <br><br><br><br>
   </form>
   
   <form class="formSignup "action="/signup" method="GET">
-   <p>Don't you have an account?</p>
-   
+   <br><br><br><br>
+
+   <p>Don't have an account?</p>
+
    <h3><br>
   <a href="signup">Sign up</a>
   </form>
