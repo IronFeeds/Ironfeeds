@@ -223,3 +223,11 @@ body{
     transform: scale(1);
   }
 }
+
+/* expanded menu */
+.expanded-menu{
+    background-color: var(--white-color);
+    height: 100%;
+    width: 80%;
+    max-width: 400px;
+}

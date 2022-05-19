@@ -7,7 +7,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
     default:
-      "https://images.assetsdelivery.com/compings_v2/meysye/meysye1904/meysye190400002.jpg",
+      "https://res.cloudinary.com/dz2hyfmhw/image/upload/v1652979443/Ironfeeds/profileImage_uda185.png",
   },
   name: {
     type: String,

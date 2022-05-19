@@ -11,6 +11,12 @@ const categorySchema = new Schema({
       "science",
       "sports",
     ], },
+    imageSelected: {
+      type: String
+    },
+    imageNotSelected: {
+      type: String
+    }
   
 });
 
