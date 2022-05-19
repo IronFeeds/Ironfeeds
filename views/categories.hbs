@@ -1,18 +1,26 @@
-<h1>Categories</h1>
+<h1 class="formAddd" >Categories</h1>
 
-<form action="/categories" method="POST">
+ <br><br>
 
-  {{#each categories}}
+<form class="category" action="/categories" method="POST">
+
+
+  {{#each categories}} 
   {{#if checked}}
-  <input checked type="checkbox" value="{{_id}}" name="{{name}}" id="{{name}}" />
+
+    <input checked type="checkbox" value="{{_id}}" name="{{name}}" id="{{name}}" />
     <label for="{{name}}">{{name}}</label>
     {{else}}
-    <input type="checkbox" value="{{_id}}" name="{{name}}" id="{{name}}" />
+    <input  type="checkbox" value="{{_id}}" name="{{name}}" id="{{name}}" />
     <label for="{{name}}">{{name}}</label>
+  
+  
   {{/if}}
 
     
   {{/each}}
 
-    <button type="submit">Save</button>
+
+
+   <button class="button-green" type="submit">Save</button>
   </form>
