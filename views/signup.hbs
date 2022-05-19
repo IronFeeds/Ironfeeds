@@ -1,7 +1,14 @@
-<div id="form">
-  <h2>Signup</h2>
-  <form action="/signup" method="POST">
 
+<div id="signUpPage">
+
+<div id="signUpImg">
+   <img src="/images/logo.png">
+</div>
+
+
+<div id="form2">
+  <form action="/signup" method="POST">
+  <h2 class="signUp">Sign up</h2>
     <label>
       Username
       <input type="text" name="name" placeholder="Username" />
@@ -21,7 +28,10 @@
 
   </form>
 
+
   {{#if errorMessage}}
     <p>There was a problem: {{errorMessage}}</p>
   {{/if}}
+</div>
+
 </div>
