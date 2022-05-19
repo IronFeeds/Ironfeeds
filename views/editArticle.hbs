@@ -1,30 +1,37 @@
-<div id="form">
-  <h2>Edit Form</h2>
+<div class="container" id="form">
+  <h2 class="formAdd" >Edit Form</h2>
   <form action="/profile/{{name._id}}/edit" method="POST" enctype="multipart/form-data">
 
-    <label for="title">
+    <label class="fields" for="title">
       Title
       <input type="text" name="title" placeholder="title" value="{{name.title}}"/>
     </label>
 
-    <label for="url">
+    <br><br>
+
+    <label class="fields" for="url">
       URL
-      <input type="url" name="url" placeholder="url" value="{{name.url}}"/>
+      <input class="input-bottom-line" type="url" name="url" placeholder="url" value="{{name.url}}"/>
     </label>
 
-    <label for="description">
+    <br><br>
+
+    <label class="fields" for="description">
       Description
       <input type="text" name="description" placeholder="description" value="{{name.description}}"/>
     </label>
 
-    <label for="imageUrl">
-      Image:
-        <input type="file" name="imageUrl" placeholder="image" value="{{name.image}}"/>
-    </label>
+    <br><br>
 
-       
+    <label class="fields" for="imageUrl">Image:</label>
 
-    <label for="categories">Choose a News Category</label>
+    <br><br>
+
+    <input type="file" name="imageUrl" placeholder="image" value="{{name.image}}"/>
+
+    <br><br><br>
+
+    <label class="fields" for="categories">Choose a News Category</label>
       <select name="categories">
         {{#each categories}}
         {{#if chosen}}
@@ -35,8 +42,10 @@
        {{/each}}
       </select>
       </label>
+
+      <br><br>
    
-    <button type="submit">Edit</button>
+    <button class="button-green" type="submit">Edit</button>
 
   </form>
 
