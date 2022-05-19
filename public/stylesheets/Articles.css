@@ -15,9 +15,7 @@
 
   }
 
-  .imput-bottom-line{
-    
-  }
+  
 
   
 .container{
@@ -56,8 +54,34 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
+   
 }
 
+.category label:nth-child(2){
+  background-image: url("https://res.cloudinary.com/dz2hyfmhw/image/upload/v1652977429/Ironfeeds/general_1_wo54ep.jpg");
+  background-size: cover;
+}
+
+.category label:nth-child(4){
+  background-image: url("https://res.cloudinary.com/dz2hyfmhw/image/upload/v1652977429/Ironfeeds/bussiness1_j34pbe.jpg");
+}
+.category label:nth-child(6){
+  background-image: url("https://res.cloudinary.com/dz2hyfmhw/image/upload/v1652977429/Ironfeeds/enntreteniment1_plqgv8.jpg");
+}
+.category label:nth-child(8){
+  background-image: url("https://res.cloudinary.com/dz2hyfmhw/image/upload/v1652977428/Ironfeeds/Health_1_uoomdb.jpg");
+}
+.category label:nth-child(9){
+  background-image: url("https://res.cloudinary.com/dz2hyfmhw/image/upload/v1652977428/Ironfeeds/science_1_ypzbzz.jpg");
+}
+
+.category label:nth-child(10){
+  background-image: url("https://res.cloudinary.com/dz2hyfmhw/image/upload/v1652977428/Ironfeeds/sports_ft47xr.jpg");
+}
+
+.category label:nth-child(12){
+  background-image: url("https://res.cloudinary.com/dz2hyfmhw/image/upload/v1652977429/Ironfeeds/generalBlack_phefr3.jpg");
+}
 
 
 [type=checkbox] {
