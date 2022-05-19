@@ -65,6 +65,15 @@ input[type=text], select {
       padding-bottom: 40px;
   }
 
+  .formAddd{
+    text-align: center;
+    margin-top: 40px;
+
+    padding: 15px;
+    padding-bottom: 40px;
+}
+
+
   .fields{
     
     margin-top: 50px;
@@ -72,4 +81,27 @@ input[type=text], select {
     
   }
 
+
+.category{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+
+[type=checkbox] {
+    display: none;
+    background-image: url(/public/images/profileImage.png);
+  }
+
+[type=checkbox] + label {
+    display: block;
+    padding: 1em;
+
+  }
+
+[type=checkbox]:checked + label {
+    color: blue;
+    box-shadow: 0 0 0.5em black;
+
+  }
 
