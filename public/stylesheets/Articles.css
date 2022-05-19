@@ -2,7 +2,7 @@
 
 
 
-input[type=text], select {
+.dropDown {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -14,64 +14,31 @@ input[type=text], select {
 	border-bottom: #2bb24c 2px solid
 
   }
-  
-  input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
 
-  }
+  .input-bottom-line
   
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
-  
-  div {
-    margin-top: 15%;
-    border-radius: 25px;
-    background-color: rgba(0,0,0,.05);
-    padding: 50px;
-  }
-
-
-  .container{
+.container{
     height:80%;
     width: 63%;
     position: absolute;
     top: 42%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    margin-top: 15%;
+    border-radius: 25px;
+    background-color: rgba(0,0,0,.05);
+    padding: 50px;
     /* margin-top: 5%;
     margin-left: 15px; */
   }
   
-  .input-bottom-line{
-      padding: 12px 20px;
-      width: 100%;  
-      margin: 8px 0px;
-      
-  }
-
-  .formAdd{
+.formAdd{
       text-align: center;
 
       padding: 15px;
       padding-bottom: 40px;
   }
-
-  .formAddd{
-    text-align: center;
-    margin-top: 40px;
-
-    padding: 15px;
-    padding-bottom: 40px;
-}
 
 
   .fields{
@@ -87,6 +54,8 @@ input[type=text], select {
     grid-template-columns: 1fr 1fr;
     gap: 1em;
 }
+
+
 
 [type=checkbox] {
     display: none;
