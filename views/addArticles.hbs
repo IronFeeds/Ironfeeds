@@ -1,28 +1,40 @@
-<div id="form">
-  <h2>Add a new Article</h2>
+<div class="container" id="form">
+  <h2 class="formAdd" >Add a New Article</h2>
   <form action="/profile/add" method="POST" enctype="multipart/form-data">
 
-    <label>
+    <label class="fields" >
       Title
-      <input type="text" name="title" placeholder="title"/>
+      <input class="input-bottom-line" type="text" name="title" placeholder="title"/>
     </label>
 
-    <label>
+    <br><br>
+
+    <label class="fields">
       URL
-      <input type="url" name="url" placeholder="url"/>
+      <input class="input-bottom-line" type="url" name="url" placeholder="url"/>
     </label>
 
-    <label>
+    <br><br>
+
+    <label class="fields">
       Description
-      <input type="text" name="description" placeholder="description"/>
+      <input class="input-bottom-line" type="text" name="description" placeholder="description"/>
     </label>
 
-    <label>Image:</label>
+    <br><br>
+
+    <label class="fields">Image:</label>
+    
+    <br><br>
+
         <input type="file" name="imageUrl"/>
     </label>
 
+    <br><br><br>
+    
 
-    <label for="categories">Choose a News Category</label>
+
+    <label class="fields" for="categories">Choose a News Category</label>
       <select name="categories">
         {{#each cat}}
   
@@ -30,8 +42,10 @@
        {{/each}}
       </select>
       </label>
+
+      <br><br>
    
-    <button type="submit">Add</button>
+    <button class="button-green" type="submit">Add</button>
 
   </form>
 

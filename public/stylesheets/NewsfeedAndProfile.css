@@ -1,1 +1,108 @@
-@import url("/public/stylesheets/style.css");
+@import url("style.css");
+
+body{
+    background-color: var(--grey-background-color);
+}
+
+.hide{
+    visibility: collapse;
+}
+
+.chosen{
+    border-bottom: var(--white-color) 2px solid;
+}
+.flexWithSpace{
+    display: flex;
+    gap: 20px;
+   
+}
+.flexBlackBackground{
+    display: flex;
+    background-color: var(--black-color);
+    justify-content: space-around;
+    align-items: center;
+    color: var(--white-color);
+    height: 2.5em;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.flexGreenBackground h3{
+    cursor: pointer;
+}
+.flexCenter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flexEnd{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.roundImage{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+.grid2Col{
+    display: grid;
+    grid-template-columns: 1fr 0.2fr;
+}
+
+.grid{
+    display: grid;
+   
+   
+}
+.newsBox{
+    background-color:var(--white-color);
+    border-radius: 10px;
+    padding: 15px;
+    
+}
+.newsBox img{
+    float: right;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.widthLimit{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.iconButton{
+    background-color: transparent;
+    border: none;
+}
+
+.iconButton img {
+    /* flex: 0 0 30px; */
+    width: 30px;
+    height: 30px;
+}
+.spaceBetweenRows{
+    height: 20px;
+}
+
+.flexSpaceBetween{
+    justify-content: space-between;
+}
+
+.saved{
+    content:url("/images/bookmark saved.png")
+}
+
+.unsaved{
+    content:url("/images/bookmark unsaved.png")
+}

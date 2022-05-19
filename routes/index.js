@@ -45,18 +45,35 @@ router.get("/", isLoggedIn, (req, res) => {
           const filteredArticles =[]
           function filterArticle(article){
             userCategories.some((category) => {
-              if (category.equals(article.category._id) )
-              filteredArticles.push(article)
-              console.log(category.equals(article.category._id) )
+              if (category.equals(article.category._id) && user.savedArticles.includes(article._id) )
+              {filteredArticles.push({
+                _id: article._id,
+                title: article.title,
+                category: article.category.name,
+                image: article.image,
+                description:article.description,
+                country: article.country,
+                url: article.url,
+                saved: true,}
+                )}
+
+                else if(category.equals(article.category._id) && !(user.savedArticles.includes(article._id)) )
+                {filteredArticles.push({
+                  _id: article._id,
+                  title: article.title,
+                  category: article.category.name,
+                  image: article.image,
+                  description:article.description,
+                  country: article.country,
+                  url: article.url,
+                  saved: false}
+                  )}
             })
           }
           articles.forEach(article=>filterArticle(article))
-  
-            console.log("filtered", filteredArticles)     
-  
+          
   
         res.render("index", {
-          name: articles,
           page,
           prevPage,
           nextPage,
@@ -81,7 +98,7 @@ router.post("/user/save/:articleId", (req, res, next) => {
       user.savedArticles.push(articleId)
     }
     user.save()
-    res.send("Added article to favourites")
+    res.json("Added article to favourites!!!")
     }
   );
   /*      .then(()=> res.redirect(`/#${articleid}`))  */

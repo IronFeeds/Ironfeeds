@@ -9,6 +9,7 @@
 
 * {
 	margin: 0;
+	
 }
 
 body {
@@ -53,4 +54,8 @@ body {
 .input-bottom-line{
 	border: none;
 	border-bottom: #2bb24c 2px solid;
+}
+
+.input-bottom-line:focus{
+	outline: none;
 }
