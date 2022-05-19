@@ -1,6 +1,6 @@
 @import url("style.css");
 
-.container{
+.containerSign{
     height:80%;
     width: 66%;
     position: absolute;
@@ -12,16 +12,28 @@
     border-radius: 25px;
     background-color: rgba(0,0,0,.05);
     padding: 50px;
+
+   
 }
 
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+}
+
+.signUp{
+    text-align: center;
+}
 
 .two{
     
-    width: 70%;
+    width: 95%;
     padding: 12px 20px;
     margin: 8px 0;
-    display: inline-block;
-    box-sizing: border-box;
+  
 }
 
   .btn-login:hover {
@@ -36,6 +48,12 @@ form2{
 .formLogin {
     padding: 80px;
     margin-top: 40px;
+}
+
+.btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
