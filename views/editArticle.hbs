@@ -4,21 +4,22 @@
 
     <label class="fields" for="title">
       Title
-      <input type="text" name="title" placeholder="title" value="{{name.title}}"/>
+      <input class="input-bottom-line" type="text" name="title" placeholder="title" value="{{name.title}}"/>
     </label>
 
     <br><br>
 
     <label class="fields" for="url">
       URL
-      <input class="input-bottom-line" type="url" name="url" placeholder="url" value="{{name.url}}"/>
+      <br><br>
+      <input class="input-bottom-line" type="text" name="url" placeholder="url" value="{{name.url}}"/>
     </label>
 
     <br><br>
 
     <label class="fields" for="description">
       Description
-      <input type="text" name="description" placeholder="description" value="{{name.description}}"/>
+      <input class="input-bottom-line" type="text" name="description" placeholder="description" value="{{name.description}}"/>
     </label>
 
     <br><br>
@@ -27,11 +28,12 @@
 
     <br><br>
 
-    <input type="file" name="imageUrl" placeholder="image" value="{{name.image}}"/>
+    <input class="input-bottom-line" type="file" name="imageUrl" placeholder="image" value="{{name.image}}"/>
 
     <br><br><br>
 
     <label class="fields" for="categories">Choose a News Category</label>
+      <br><br>
       <select name="categories">
         {{#each categories}}
         {{#if chosen}}
