@@ -24,6 +24,10 @@
 
 }
 
+.login{
+    text-align: center;
+}
+
 .signUp{
     text-align: center;
 }
@@ -36,18 +40,14 @@
   
 }
 
+.log{
+    width: 95%;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+
   .btn-login:hover {
       background-color: black;
-}
-
-form2{
-    margin-left: 20%;
-
-}
-
-.formLogin {
-    padding: 80px;
-    margin-top: 40px;
 }
 
 .btn{
@@ -55,9 +55,6 @@ form2{
     margin-left: auto;
     margin-right: auto;
 }
-
-
-
 
 
  .formSignup{        /*this is for the don't account and link */
