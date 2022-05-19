@@ -3,8 +3,9 @@
   
   <form action="/profile/add" method="POST" enctype="multipart/form-data">
 
-    <label class="fields" >
+    <label class="fields">
       Title
+      <br><br>
       <input class="input-bottom-line" type="text" name="title" placeholder="title"/>
     </label>
 
@@ -20,6 +21,7 @@
 
     <label class="fields">
       Description
+      <br><br>
       <input class="input-bottom-line" type="text" name="description" placeholder="description"/>
     </label>
 
@@ -37,6 +39,7 @@
 
 
     <label class="fields" for="categories">Choose a News Category</label>
+    <br><br>
       <select class="dropDown" name="categories">
         {{#each cat}}
   
