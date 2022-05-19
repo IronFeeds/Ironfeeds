@@ -2,7 +2,7 @@
 
 
 
-input[type=text], select {
+/* input[type=text], select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -36,7 +36,7 @@ input[type=text], select {
     border-radius: 25px;
     background-color: rgba(0,0,0,.05);
     padding: 50px;
-  }
+  } */
 
 
   .container{
