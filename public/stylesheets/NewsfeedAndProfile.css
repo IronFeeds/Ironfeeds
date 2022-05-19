@@ -106,3 +106,120 @@ body{
 .unsaved{
     content:url("/images/bookmark unsaved.png")
 }
+
+/* !!!!menu lines!!!! */
+.lines {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    margin: 20px;
+  }
+  
+  .line1, .line2, .line3 {
+    width: 40px;
+    height: 7px;
+    background-color: var(--green-color);
+    border-radius: 3px;
+        box-shadow: 0 2px 10px 0 rgba(0,0,0,0.3);
+  }
+
+.line1.close {
+  animation: line1x 1s ease 0s 1 normal forwards;
+}
+
+.line2.close {
+  animation: line2x 1.1s ease 0s 1 normal forwards;
+  
+}
+
+.line3.close {
+  animation: line3x 1s ease 0s 1 normal forwards;
+}
+
+@keyframes line3x {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-13px);
+  }
+  100% {
+    transform: translateY(-13px) rotate(135deg);
+  }}
+
+@keyframes line1x {
+  0% {
+    transform: translateY(0);
+  }
+  
+  50% {
+    transform: translateY(11px);
+  }
+
+  100% {
+    transform: translateY(11px) rotate(45deg);
+  }}
+
+@keyframes line2x {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+/* back animation */
+
+.line1.rev {
+  animation: line1rev 1s ease 0s 1 normal forwards;
+}
+
+.line2.rev {
+  animation: line2rev 0.8s ease 0s 1 normal forwards;
+  
+}
+
+.line3.rev {
+  animation: line3rev 1s ease 0s 1 normal forwards;
+}
+
+@keyframes line1rev {
+  0% {
+    transform: translateY(11px) rotate(45deg);
+  }
+  50% {
+      transform: translateY(11px);
+    }
+  
+  100% {
+    transform: rotate(0deg) translateY(0px);
+  }}
+
+
+  @keyframes line3rev {
+      0% {
+        transform: translateY(-13px) rotate(135deg);
+      }
+    
+      50% {
+        transform: translateY(-13px);
+      }
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }}
+
+@keyframes line2rev {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
