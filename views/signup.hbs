@@ -1,30 +1,37 @@
+<div class="container" id="signUpImg">
+   
 
-<div id="signUpPage">
-
-<div id="signUpImg">
-   <img src="/images/logo.png">
-</div>
-
-
-<div id="form2">
-  <form action="/signup" method="POST">
+  <form id="form2" action="/signup" method="POST">
+  <img class="logo" src="/images/logo.png">
   <h2 class="signUp">Sign up</h2>
+  <br><br>
+    
     <label>
       Username
-      <input type="text" name="name" placeholder="Username" />
+       <br><br>
+      <input class="input-bottom-line two" type="text" name="name" placeholder="Username" />
     </label>
+
+<br><br>
 
     <label>
       Email
-      <input type="text" name="email" placeholder="Email" />
+       <br><br>
+      <input class="input-bottom-line two" type="text" name="email" placeholder="Email" />
+    
     </label>
+
+<br><br>
 
     <label>
       Password
-      <input type="password" name="password" placeholder="********" />
+       <br><br>
+      <input class="input-bottom-line two" type="password" name="password" placeholder="********" />
     </label>
 
-    <button type="submit">Create account</button>
+    <br><br>
+
+    <button class="button-green" type="submit">Create account</button>
 
   </form>
 
@@ -32,6 +39,6 @@
   {{#if errorMessage}}
     <p>There was a problem: {{errorMessage}}</p>
   {{/if}}
-</div>
+
 
 </div>
