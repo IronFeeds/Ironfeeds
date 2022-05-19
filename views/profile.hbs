@@ -1,7 +1,13 @@
-<a href="/">Go to Newsfeed</a>
-<div class="flexEnd">
-    <a href="/profile/add"><img src="/images/add-button.png" alt=""></a>
-    <p>Add Article</p>
+
+<div class="flexSpaceBetween">
+    <div class="flexAlignCenter">
+        <img src="/images/left-arrow.png" alt="">
+        <a class="navigationLinks" href="/">Go to Newsfeed</a>
+    </div>
+    <div>
+        <a href="/profile/add"><img src="/images/add-button.png" alt=""></a>
+        <p>Add Article</p>
+    </div>
 </div>
 <div class="flexCenter">
 <img class="roundImage" src="{{user.image}}" alt="{{user.name}}"> 
@@ -28,7 +34,7 @@
         {{#if this.image}}
            <img src="{{this.image}}" alt="{{this.title}}">
         {{else}}
-            <img src="https://www.bag.admin.ch/bag/en/home/das-bag/aktuell/news/news-02-08-2021/_jcr_content/image.imagespooler.png/1646310847290/588.1000/Icons-18.png" alt="{{this.title}}">
+            <img src="https://heuft.com/upload/image/400x267/icons_news_heuft_400x267px.png" alt="{{this.title}}">
         {{/if}}
         </div>
       

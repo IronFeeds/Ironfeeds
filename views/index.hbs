@@ -3,25 +3,26 @@
 </form>
 
 {{!-- dynamic navbar --}}
-  <div class="center">
+  
+
+<div class="expanded-menu hide">
+    <img class="roundImage menuProfileIconSpace" src="{{user.image}}" alt="">
+    <h2>{{user.name}}</h2>
+    <a class="links" href="/profile">Profile</a>
+    <a class="links" href="/categories">Edit Categories</a>
+    <a class="links" href="/logout">Logout</a>
+</div>
+
+<div class="center">
 <div class="lines">
   <div class="line1 noAnimation"></div>
   <div class="line2 noAnimation"></div>
   <div class="line3 noAnimation"></div>
 </div>
 </div>
-
-<div class="expanded-menu">
-    <img src="{{user.image}}" alt="">
-    <h2>{{user.name}}</h2>
-    <a href="/profile">Profile</a>
-    <a href="/categories">Edit Categories</a>
-    <a href="/logout">Logout</a>
-</div>
-
 {{!-- newsfeed --}}
 
-<div class="flexCenter">
+<div class="flexCenter newsfeedTopSpace">
 <table class="widthLimit">
     
     {{#each name}}
@@ -36,7 +37,7 @@
         {{#if this.image}}
            <img src="{{this.image}}" alt="{{this.title}}">
         {{else}}
-            <img src="https://www.bag.admin.ch/bag/en/home/das-bag/aktuell/news/news-02-08-2021/_jcr_content/image.imagespooler.png/1646310847290/588.1000/Icons-18.png" alt="{{this.title}}">
+            <img src="https://heuft.com/upload/image/400x267/icons_news_heuft_400x267px.png" alt="{{this.title}}">
         {{/if}}
         </div>
       
@@ -64,6 +65,6 @@
 
 {{!--- Pagination ---}}
 <div class="widthLimit flexSpaceBetween">
-<a href="/?page={{prevPage}}&perPage={{perPage}}">Prev</a>
-<a href="/?page={{nextPage}}&perPage={{perPage}}">Next</a>
+<a class="navigationLinks" href="/?page={{prevPage}}&perPage={{perPage}}">Prev</a>
+<a class="navigationLinks" href="/?page={{nextPage}}&perPage={{perPage}}">Next</a>
 </div>
