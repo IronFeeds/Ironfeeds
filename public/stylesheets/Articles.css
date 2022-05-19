@@ -15,10 +15,13 @@
 
   }
 
-  .input-bottom-line
+  .imput-bottom-line{
+    
+  }
+
   
 .container{
-    height:80%;
+    height:100%;
     width: 63%;
     position: absolute;
     top: 42%;
