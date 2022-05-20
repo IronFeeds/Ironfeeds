@@ -1,26 +1,40 @@
+<div class="containerSign" id="signUpImg">
+  <div><img class="logo" src="/images/logo.png"></div>
+  <br><br>
+  <h2 class="signUp">Sign up</h2>
 
-<div id="margin">
+  <br><br>
+   
 
-  <form class="formLogin" action="/signup" method="POST">
-  <img class="logoLogin" src="/images/logo.png">
-  <h2 class="login">Sign up</h2>
-    <label>
+  <form id="form2" action="/signup" method="POST">
+  
+     <label class="fields">
       Username
-        <label>
-      <input class="input-bottom-line" type="text" name="name" placeholder="Username" />
+       <br><br>
+      <input class="input-bottom-line two" type="text" name="name" placeholder="Username" />
     </label>
 
-    <label>
+<br><br>
+
+    <label class="fields">
       Email
-      <input class="input-bottom-line" type="text" name="email" placeholder="Email" />
+       <br><br>
+      <input class="input-bottom-line two" type="text" name="email" placeholder="Email" />
+    
     </label>
 
-    <label>
+<br><br>
+
+    <label class="fields">
       Password
-     <input class="input-bottom-line" type="password" name="password" placeholder="********" />
+       <br><br>
+      <input class="input-bottom-line two" type="password" name="password" placeholder="********" />
     </label>
 
-        <button class="button-green width" type="submit">Sign up</button>
+    <br><br><br><br>
+
+    <button class="button-green btn" type="submit">Create account</button>
+
   </form>
 
   <form action="/categories" method="POST"></form>
@@ -29,5 +43,6 @@
   {{#if errorMessage}}
     <p>There was a problem: {{errorMessage}}</p>
   {{/if}}
+
 
 </div>

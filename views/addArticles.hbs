@@ -1,24 +1,28 @@
 <div class="container" id="form">
   <h2 class="formAdd" >Add a New Article</h2>
+  
   <form action="/profile/add" method="POST" enctype="multipart/form-data">
 
-    <label class="fields" >
+    <label class="fields">
       Title
-      <input class="input-bottom-line" type="text" name="title" placeholder="title"/>
+      <br><br>
+      <input class="input-bottom-line log" type="text" name="title" placeholder="title"/>
     </label>
 
     <br><br>
 
     <label class="fields">
       URL
-      <input class="input-bottom-line" type="url" name="url" placeholder="url"/>
+      <br><br>
+      <input class="input-bottom-line log" type="text" name="url" placeholder="url"/>
     </label>
 
     <br><br>
 
     <label class="fields">
       Description
-      <input class="input-bottom-line" type="text" name="description" placeholder="description"/>
+      <br><br>
+      <input class="input-bottom-line log" type="text" name="description" placeholder="description"/>
     </label>
 
     <br><br>
@@ -35,7 +39,8 @@
 
 
     <label class="fields" for="categories">Choose a News Category</label>
-      <select name="categories">
+    <br><br>
+      <select class="dropDown" name="categories">
         {{#each cat}}
   
         <option value="{{this._id}}">{{this.name}}</option>

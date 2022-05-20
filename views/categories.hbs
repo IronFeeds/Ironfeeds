@@ -1,6 +1,8 @@
-<h1 class="formAddd" >Categories</h1>
+<h1 class="formAdd" >Categories</h1>
 
  <br><br>
+
+ <div class="cat" >
 
 <form class="category" action="/categories" method="POST">
 
@@ -9,10 +11,10 @@
   {{#if checked}}
 
     <input checked type="checkbox" value="{{_id}}" name="{{name}}" id="{{name}}" />
-    <label for="{{name}}">{{name}}</label>
+    <label for="{{name}}"><img src="{{imageSelected}}" alt=""></label>
     {{else}}
     <input  type="checkbox" value="{{_id}}" name="{{name}}" id="{{name}}" />
-    <label for="{{name}}">{{name}}</label>
+    <label for="{{name}}"><img src="{{imageSelected}}" alt=""></label>
   
   
   {{/if}}
@@ -20,7 +22,11 @@
     
   {{/each}}
 
-
-
-   <button class="button-green" type="submit">Save</button>
+</div>
+<br><br><br>
+  
+  <div class="catbtn">
+   <button class="button-green lag" type="submit">Save</button>
+  </div>
+ 
   </form>

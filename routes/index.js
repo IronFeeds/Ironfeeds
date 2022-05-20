@@ -79,7 +79,8 @@ router.get("/", isLoggedIn, (req, res) => {
           nextPage,
           perPage,
           totPages,
-          name: filteredArticles
+          name: filteredArticles,
+          user
         })}
       )
   

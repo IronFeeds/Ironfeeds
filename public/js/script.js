@@ -49,3 +49,36 @@ Array.from(saveIcon).forEach((icon)=> icon.addEventListener("click", ()=>{
 },
 false
 );
+
+//Menu lines
+const lines = document.querySelectorAll('.line1, .line2, .line3');
+const linesContainer = document.getElementsByClassName("lines");
+const expandedMenu = document.querySelector(".expanded-menu")
+
+function changeClass (){
+    for(let i=0; i<3;i++){
+if (lines[i].classList.contains("noAnimation")){
+    lines[i].classList.add("close"); 
+    lines[i].classList.remove("noAnimation");  
+  }
+ else if (lines[i].classList.contains("close")){
+    lines[i].classList.add("rev");
+    lines[i].classList.remove("close");  
+  }
+ else if (lines[i].classList.contains("rev")){
+    lines[i].classList.add("close");  
+    lines[i].classList.remove("rev");
+  }; 
+}
+if(expandedMenu.classList.contains("hide")){
+  expandedMenu.classList.remove("hide")
+  expandedMenu.classList.add("showWithTransition")
+}
+else{
+  expandedMenu.classList.toggle("hideWithTransition")
+  expandedMenu.classList.toggle("showWithTransition")
+}
+
+}
+
+linesContainer[0].addEventListener("click", changeClass);
