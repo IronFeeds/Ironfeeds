@@ -77,7 +77,7 @@ router
         } else {
           if (bcrypt.compareSync(password, user.password)) {
             req.session.currentUser = user;
-            res.redirect("/categories"); // redirect to wherever you want
+            res.redirect("/"); // redirect to wherever you want
             return;
           } else {
             res.render("login", { errorMessage: "Wrong credentials!" });
