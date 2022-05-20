@@ -22,6 +22,7 @@
 
 .login{
     text-align: center;
+    margin-top: -20px;
 }
 
 .signUp{
@@ -40,14 +41,8 @@
     margin: 8px 0;
 }
 
-  .btn-login:hover {
+.btn-login:hover {
       background-color: black;
-}
-
-.login{
-    margin-left:140px;
-    margin-top: -20px;
-    opacity: 5;
 }
 
 .logoLogin{
@@ -57,6 +52,7 @@
     margin-left: 60px;
     background-color: var(--grey-text-color);
 }
+
 .btn{
     display: block;
     margin-left: auto;
@@ -81,11 +77,4 @@
     padding: 80px;
     padding-bottom: 40px;
     margin-top: -120px;
-}
-
-.signUp{
-    margin-left:150px;
-    margin-top: 20px;
-    margin-bottom: 40;
-    opacity: 5;
 }
