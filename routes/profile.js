@@ -51,26 +51,33 @@ router
     Category.findById( categories )
     .then((category) =>
     { const categoryID = category._id
-        console.log("cateories", categoryID)
-        
-        Article.findByIdAndUpdate(articleId, {
-        title,
-        url,
-        description,
-        category: categoryID
-      }, {new:true}) 
-      .then(()=>{
-          if(req.file){
-            const imageUrl = req.file.path;
-            Article.findByIdAndUpdate(articleId,
-                {image: imageUrl}, {new:true})
-          }
-      })
-      .then(()=>res.redirect("/profile"))}
-    )
-    .catch((err) => console.log(err))
+        //console.log("file", req.file.path)
+         
+         Article.findById(articleId)
+         .then((article)=>{
+           if(req.file)
+        {const imageUrl = req.file.path
+          article.title=title;
+          article.url = url;
+          article.description = description;
+          article.category = categoryID;
+          article.image = imageUrl
+          article.save()
+        }
+      else {
+        article.title=title;
+          article.url = url;
+          article.description = description;
+          article.category = categoryID;
+          
+          article.save()
+      }
+         })
+        })
     
-  });
+      .then(()=>res.redirect("/profile"))
+      .catch((err) => console.log(err))
+    })
 
 //Create a new article
 router
