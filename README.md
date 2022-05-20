@@ -22,17 +22,17 @@
 
 |**Method**    |    **View**           |    **Route**     |   **Description**       |          **Request - Body**                     |
 |--------------|-------------------|------------------------|-----------------------------------|---------------------|
-|`GET`         |   `index` or `home`            |      `/`               | Main page route for `ìndex` or `home` view. If logged redirect to `/home/user/:userid`  |   {req.session.currentUser._id} |
+|`GET`         |   `index`            |      `/`               | Main page route for `ìndex` or `home` view. If not logged redirect to `/login`  |   {req.session.currentUser._id} |
 |`GET`         | `signup`            |    `/signup`           | Render `signup`form view          |                     |
-|`POST`        |  `/`           |    `/signup`           | Send signup data to server and creates an user in DB. Then redirect to `/:userId`                                   |          {username, email, password}           |
+|`POST`        |  `signup`           |    `/signup`           | Send signup data to server and creates an user in DB. Then redirect to `/categories`                                   |          {username, email, password}           |
 |`GET`         |  `login`           |      `/login`          | Render `login`form view           |                     |
-|`POST`        |   `home`          |      `/login`          | Send login data to server and redirect to `home`     | {email, password}            |
-|`GET`         |   `categories`          |      `/categories`           | Render `home`view                | {req.session.userID}    |
-|`POST`        |    `categories`         |      `/categories`     | Sends ObjID of the categories that user choose. Then redirect `/home`   | {req.session.currentUser._id} |
-|`GET`        |    `profile`         |      `/profile/:articleId/`     | Render `post-creation`view  |  |
+|`POST`        |   `login`          |      `/login`          | Send login data to server and redirect to `index`     | {email, password,categories}            |
+|`GET`         |   `categories`          |      `/categories`           | Render `categories`view                | {req.session.currentUser._id}    |
+|`POST`        |    `categories`         |      `/categories`     | Sends ObjID of the categories that user choose. Then redirect `/`   | {req.session.currentUser._id} |
+|`GET`        |    `profile`         |      `/profile/:add`     | Render `post-creation`view  |  |
 |`GET`         |     `profile`        |      `/profile`        | Render `profile`view             | {req.session.currentUser._id}                    |
 |`POST`        |    `profile`         |      `/profile/:user:id` | Send the data updated by the user to the DB. Then render `profile`view  | {req.session.userID, name, password, email, category, image, req.session.currentUser._id}  |
-|`GET`        |    `home`         |      `/` | Render `home`view  |   |
+|`POST`        |    `logout`         |      `/logout` | Redirect to `/login`  |   |
 
 ### Backlog
 | Method | Route | Description |
@@ -78,8 +78,6 @@ name: String
 ### Git
 
 [Repository Link](https://github.com/IronFeeds/Ironfeeds)
-
-[Deploy Link]()
 
 ### Slides
 
