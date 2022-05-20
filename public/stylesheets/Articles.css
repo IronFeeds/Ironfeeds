@@ -30,13 +30,15 @@
     border-radius: 25px;
     background-color: rgba(0,0,0,.05);
     padding: 50px;
+
     /* margin-top: 5%;
     margin-left: 15px; */
   }
   
 .formAdd{
       text-align: center;
-      margin-top: 20px;
+      margin-top: 45px;
+
 
       padding: 15px;
       padding-bottom: 40px;
@@ -50,38 +52,136 @@
     
   }
 
+  .log{
+    width: 95%;
+    padding: 12px 20px;
+    margin: 8px 0;
+
+}
+
 
 .category{
-    display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+  gap: 10px 10px;
+  justify-content: center;
+  margin-left: 10px;
+  
+  /* display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr ;
+  grid-gap: 20px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 49.75%;
+  margin-bottom: .5%; */
+
+  
+  
+  
+  /* display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr ;
+  grid-template-rows: 1fr 1fr; */
+  
+ 
+  
+  
+  
+  /* display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1em;
+    gap: 1em; */
    
 }
 
 .category label:nth-child(2){
   background-image: url("https://res.cloudinary.com/dz2hyfmhw/image/upload/v1652977429/Ironfeeds/general_1_wo54ep.jpg");
-  background-size: cover;
+  border: 1px solid green;
+  background-color: lime;
+  flex: 1 1 auto;
+  width: 100px;
+  height: 100px;
+  /* background-size: cover;
+  width: 50vw;
+  height: 50vh; */
+  
 }
 
 .category label:nth-child(4){
   background-image: url("https://res.cloudinary.com/dz2hyfmhw/image/upload/v1652977429/Ironfeeds/bussiness1_j34pbe.jpg");
+  border: 1px solid green;
+  background-color: lime;
+  flex: 1 1 auto;
+  width: 100px;
+  height: 100px;
+  
+  /* background-size: cover;
+  width: 50vw;
+  height: 50vh; */
 }
 .category label:nth-child(6){
   background-image: url("https://res.cloudinary.com/dz2hyfmhw/image/upload/v1652977429/Ironfeeds/enntreteniment1_plqgv8.jpg");
+  border: 1px solid green;
+  background-color: lime;
+  flex: 1 1 auto;
+  width: 100px;
+  height: 100px;
+  
+  /* background-size: cover;
+  width: 50vw;
+  height: 50vh; */
 }
 .category label:nth-child(8){
   background-image: url("https://res.cloudinary.com/dz2hyfmhw/image/upload/v1652977428/Ironfeeds/Health_1_uoomdb.jpg");
+  border: 1px solid green;
+  background-color: lime;
+  flex: 1 1 auto;
+  width: 100px;
+  height: 100px;
+  
+  /* background-size: cover;
+  width: 50vw;
+  height: 50vh; */
 }
 .category label:nth-child(9){
   background-image: url("https://res.cloudinary.com/dz2hyfmhw/image/upload/v1652977428/Ironfeeds/science_1_ypzbzz.jpg");
+  border: 1px solid green;
+  background-color: lime;
+  flex: 1 1 auto;
+  width: 100px;
+  height: 100px;
+  
+  /* background-size: cover;
+  width: 50vw;
+  height: 50vh; */
 }
 
 .category label:nth-child(10){
   background-image: url("https://res.cloudinary.com/dz2hyfmhw/image/upload/v1652977428/Ironfeeds/sports_ft47xr.jpg");
+  border: 1px solid green;
+  background-color: lime;
+  flex: 1 1 auto;
+  width: 100px;
+  height: 100px;
+  
+  /* background-size: cover;
+  width: 50vw;
+  height: 50vh; */
 }
 
 .category label:nth-child(12){
   background-image: url("https://res.cloudinary.com/dz2hyfmhw/image/upload/v1652977429/Ironfeeds/generalBlack_phefr3.jpg");
+  border: 1px solid green;
+  background-color: lime;
+  flex: 1 1 auto;
+  width: 100px;
+  height: 100px;
+  
+  /* background-size: cover;
+  width: 50vw;
+  height: 50vh; */
 }
 
 
@@ -98,7 +198,7 @@
 
 [type=checkbox]:checked + label {
     color: blue;
-    box-shadow: 0 0 0.5em black;
+    box-shadow: 0 0 0.5em rgb(20, 202, 0);
 
   }
 
