@@ -29,8 +29,8 @@ router
     catuser();
   })
 
-  .post((req, res) => {
-    console.log(req.body);
+  .post(isLoggedIn, (req, res) => {
+    console.log(">>>>>>>>>>>>>>", req.body);
     const userId = req.session.currentUser._id;
     const categoryIds = Object.values(req.body);
     User.findByIdAndUpdate(userId, { category: categoryIds }, { new: true })

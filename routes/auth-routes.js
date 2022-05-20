@@ -70,13 +70,14 @@ router
 
     User.findOne({ email })
       .then((user) => {
+        console.log(">>>>>>>>>>>", user, email, password)
         if (!user) {
           res.render("login", { errorMessage: "Wrong credentials!" });
           return;
         } else {
           if (bcrypt.compareSync(password, user.password)) {
             req.session.currentUser = user;
-            res.redirect("/profile"); // redirect to wherever you want
+            res.redirect("/categories"); // redirect to wherever you want
             return;
           } else {
             res.render("login", { errorMessage: "Wrong credentials!" });

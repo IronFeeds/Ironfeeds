@@ -12,16 +12,12 @@
     border-radius: 25px;
     background-color: rgba(0,0,0,.05);
     padding: 50px;
-
-   
 }
 
 .logo{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    
-
 }
 
 .login{
@@ -33,11 +29,9 @@
 }
 
 .two{
-    
     width: 95%;
     padding: 12px 20px;
     margin: 8px 0;
-  
 }
 
 .log{
@@ -50,6 +44,19 @@
       background-color: black;
 }
 
+.login{
+    margin-left:140px;
+    margin-top: -20px;
+    opacity: 5;
+}
+
+.logoLogin{
+    width: 240px;
+    height: 240px;
+    margin-top: -70px;
+    margin-left: 60px;
+    background-color: var(--grey-text-color);
+}
 .btn{
     display: block;
     margin-left: auto;
@@ -61,6 +68,24 @@
     text-align: center;
     padding: 80px;
     padding-bottom: 40px;
-    margin-top: -180px;
+    margin-top: -140px;
 }
 
+.logoSignup{
+    width: 220px;
+    height: 220px;
+    margin-left: 70px;
+}
+
+#signUpPage{
+    padding: 80px;
+    padding-bottom: 40px;
+    margin-top: -120px;
+}
+
+.signUp{
+    margin-left:150px;
+    margin-top: 20px;
+    margin-bottom: 40;
+    opacity: 5;
+}
